@@ -19,7 +19,7 @@
 const events = require('events');
 
 const types = require('./types');
-const utils = require('./utils.js');
+const utils = require('./utils');
 const FrameHeader = types.FrameHeader;
 
 /**
