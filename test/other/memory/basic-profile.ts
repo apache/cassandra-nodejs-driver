@@ -16,7 +16,6 @@
  * limitations under the License.
  */
 'use strict';
-/* eslint-disable no-console, no-undef */
 const assert = require('assert');
 const util = require('util');
 let heapdump;
@@ -25,12 +24,13 @@ try {
   // eslint-disable-next-line global-require
   heapdump = require('heapdump');
 }
+/* eslint-disable no-console, no-undef */
 catch (e) {
-  console.log(e);
+  console.error('There was an error while trying to import heapdump', e);
 }
 
-const helper = require('../../test-helper.js');
-const cassandra = require('../../../index.js');
+const helper = require('../../test-helper');
+const cassandra = require('../../../index');
 const Client = cassandra.Client;
 const types = cassandra.types;
 const utils = require('../../../lib/utils');
@@ -44,31 +44,29 @@ if (!global.gc) {
   return;
 }
 
-const totalLength = 100;
+const insertOnly = process.argv.indexOf('--insert-only') > 0;
 const heapUsed = process.memoryUsage().heapUsed;
-let totalByteLength = 0;
-const values = [];
 
 utils.series([
   helper.ccmHelper.removeIfAny,
   helper.ccmHelper.start(2),
   client.connect.bind(client),
   function (next) {
-    client.execute(helper.createKeyspaceCql(keyspace, 3), helper.waitSchema(client, next));
+    client.execute(helper.createKeyspaceCql(keyspace, 2), helper.waitSchema(client, next));
   },
   function (next) {
     client.execute(helper.createTableCql(table), helper.waitSchema(client, next));
   },
   function insertData(next) {
-    console.log('------------Starting to insert data...');
-    const query = util.format('INSERT INTO %s (id, int_sample, bigint_sample, blob_sample) VALUES (?, ?, ?, ?)', table);
+    console.log('Starting to insert data...');
+    const query = util.format('INSERT INTO %s (id, int_sample, blob_sample) VALUES (?, ?, ?)', table);
     let counter = 0;
     let callbackCounter = 0;
     global.gc();
-    utils.timesLimit(totalLength, 500, function (v, timesNext) {
+    utils.timesLimit(10000, 500, function (v, timesNext) {
       const n = counter++;
-      const buffer = utils.allocBufferFromString(generateAsciiString(1024));
-      client.execute(query, [types.uuid(), n, types.Long.fromNumber(n), buffer], {prepare: 1}, function (err) {
+      const buffer = utils.allocBufferFromString(generateAsciiString(1024), 'utf8');
+      client.execute(query, [types.Uuid.random(), n, buffer], {prepare: true}, function (err) {
         if ((callbackCounter++) % 1000 === 0) {
           console.log('Inserted', callbackCounter);
         }
@@ -76,20 +74,33 @@ utils.series([
         setImmediate(timesNext);
       });
     }, function (err) {
-      next(err);
+      if (err) {
+        return next(err);
+      }
+      next();
     });
-  },
+  }
+  ,
   function selectData(next) {
-    console.log('------------Retrieving data...');
-    const query = util.format('SELECT id, int_sample, bigint_sample, blob_sample FROM %s', table);
-    //const query = util.format('SELECT blob_sample FROM %s', table);
+    if (insertOnly) {
+      return next();
+    }
+    console.log('Retrieving data...');
+    const query = util.format('SELECT * FROM %s', table);
+    let totalByteLength = 0;
     global.gc();
+    let rowCount = 0;
     client.eachRow(query, [], {prepare: true, autoPage: true}, function (n, row) {
-      //Buffer length + uuid + int + bigint
-      totalByteLength += row['blob_sample'].length + 4 + 16 + 8;
-      values.push(row.values());
-    }, function (err) {
-      next(err);
+      //Buffer + int + uuid
+      totalByteLength += row['blob_sample'].length + 4 + 16;
+      rowCount++;
+    }, function (err, result) {
+      if (err) {
+        return next(err);
+      }
+      assert.strictEqual(rowCount, result.rowLength);
+      console.log(util.format('Retrieved %d rows and around %s', result.rowLength, formatLength(totalByteLength)));
+      next();
     });
   }
 ], function (err) {
@@ -99,7 +110,6 @@ utils.series([
       client = null;
       global.gc();
       const diff = process.memoryUsage().heapUsed - heapUsed;
-      console.log('Byte length %s in %d values', formatLength(totalByteLength), values.length);
       console.log('Heap used difference', formatLength(diff));
       if (heapdump) {
         heapdump.writeSnapshot(heapdumpPath + '/' + Date.now() + '.heapsnapshot');
@@ -111,16 +121,13 @@ utils.series([
 });
 
 function formatLength(value) {
-  const kbValues = Math.floor(value / 1024);
-  if (kbValues > 1024) {
-    return (kbValues / 1024).toFixed(2) + 'MiB';
-  }
-  return kbValues + 'KiB';
+  return Math.floor(value / 1024) + 'KiB';
 }
 
 function generateAsciiString(length) {
   let text = '';
   const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
   for( let i=0; i < length; i++ ){
     text += possible.charAt(Math.floor(Math.random() * possible.length));
   }
