@@ -1,0 +1,77 @@
+name: Lint, TS Transpile, and Unit Tests, Migrated from Travis CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  eslint:
+    name: Run eslint
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'npm'
+      - run: npm install -g eslint@4
+      - run: npm run eslint
+
+  typescript-49:
+    name: TypeScript 4.9 generation and compilation tests
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'npm'
+      - run: npm install -g typescript@4.9
+      - run: |
+          pushd test/unit/typescript/
+          tsc -p .
+          node -e "require('./api-generation-test').generate()" > generated.ts
+          tsc generated.ts
+
+  unit-tests:
+    name: Unit tests (Node.js ${{ matrix.node }})
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node: [18.x, 20.x, 22.x]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+      - run: npm test
+
+  unit-latest-deps:
+    name: Unit tests w/ latest dependencies - Node.js 20.x
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - run: rm package-lock.json
+      - run: rm -rf node_modules
+      - run: npm install
+      - run: npm test
+
+  typescript-latest:
+    name: TypeScript (latest) generation and compilation tests
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'npm'
+      - run: npm install -g typescript
+      - run: |
+          pushd test/unit/typescript/
+          tsc -p .
+          node -e "require('./api-generation-test').generate()" > generated.ts
+          tsc generated.ts
