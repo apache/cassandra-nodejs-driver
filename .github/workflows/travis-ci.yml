@@ -26,12 +26,36 @@ jobs:
         with:
           node-version: 18.x
           cache: 'npm'
-      - run: npm install -g typescript@4.9
+
+      # Install project dependencies (including @types/node)
+      - run: npm install
+
+      # Override TypeScript version (locally, not global)
+      - run: npm install typescript@4.9.x --no-save
+
+      # Run the real test sequence
       - run: |
           pushd test/unit/typescript/
-          tsc -p .
+          npx tsc -p .
           node -e "require('./api-generation-test').generate()" > generated.ts
-          tsc generated.ts
+          npx tsc generated.ts
+
+  typescript-latest:
+    name: TypeScript (latest) generation and compilation tests
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'npm'
+      - run: npm install
+      - run: npm install typescript --no-save   # installs the newest version
+      - run: |
+          pushd test/unit/typescript/
+          npx tsc -p .
+          node -e "require('./api-generation-test').generate()" > generated.ts
+          npx tsc generated.ts
 
   unit-tests:
     name: Unit tests (Node.js ${{ matrix.node }})
@@ -45,7 +69,9 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
+      - run: npm install
       - run: npm test
+
 
   unit-latest-deps:
     name: Unit tests w/ latest dependencies - Node.js 20.x
@@ -59,19 +85,3 @@ jobs:
       - run: rm -rf node_modules
       - run: npm install
       - run: npm test
-
-  typescript-latest:
-    name: TypeScript (latest) generation and compilation tests
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
-          cache: 'npm'
-      - run: npm install -g typescript
-      - run: |
-          pushd test/unit/typescript/
-          tsc -p .
-          node -e "require('./api-generation-test').generate()" > generated.ts
-          tsc generated.ts
