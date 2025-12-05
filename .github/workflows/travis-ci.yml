@@ -27,13 +27,10 @@ jobs:
           node-version: 18.x
           cache: 'npm'
 
-      # Install project dependencies (including @types/node)
       - run: npm install
 
-      # Override TypeScript version (locally, not global)
       - run: npm install typescript@4.9.x --no-save
 
-      # Run the real test sequence
       - run: |
           pushd test/unit/typescript/
           npx tsc -p .
@@ -62,7 +59,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        node: [18.x, 20.x, 22.x]
+        node: [18.x, 20.x, 22.x, 24.x]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
