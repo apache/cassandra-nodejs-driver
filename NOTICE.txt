@@ -1,4 +1,67 @@
+Apache Cassandra NodeJS  Driver
+Copyright 2013 The Apache Software Foundation
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+
 Integer provided by The Closure Library from
 https://github.com/google/closure-library/
 under the Apache License 2.0.
 Copyright (c) 2010 Google Inc.
+
+This product originates, before git sha
+acea0b9de8f3394b245261fe10693ff3c242958d, from software from DataStax and other
+individual contributors. All work was previously copyrighted to DataStax.
+
+Non-DataStax contributors are listed below. Those marked with asterisk have
+explicitly consented to their contributions being donated to the ASF.
+
+aaron-em	Aaron Miller	me@aaron-miller.me
+adamfaulkner	Adam Faulkner
+adrianpike	Adrian Pike	adrian@adrianpike.com                               *
+anoek	Akita Noek	akita@noek.net                                          *
+BenBrostoff	Ben Brostoff
+bitcloud	Jan Schmidle	jan@jschmidle.org                               *
+BridgeAR	Ruben Bridgewater	ruben@bridgewater.de                        *
+BryanDonovan	Bryan Donovan                                               *
+brycebaril	Bryce Baril	bryce@ravenwall.com                                 *
+chmac	Callum Macdonald                                                    *
+connor4312	Connor Peet	connor@peet.io
+DanielSmedegaardBuus	Daniel Smedegaard Buus	danielbuus@gmail.com
+dreaf
+dsri
+emeliawilkinson24	Emelia
+emr	Emre Akinci	emre@emreakinci.com.tr                                      *
+Gaen	Mikhail Gaenkov                                                     *
+gd-rvemula	Ravi Vemula
+guyellis	Guy Ellis	wildfiction@gmail.com                               *
+guzmo	Andreas Törnström Andersson	andreas.tornstrom.andersson@gmail.com   *
+gwicke	Gabriel Wicke                                                       *
+jbisso	Jim Bisso                                                           *
+jcrugzz	Jarrett Cruger                                                      *
+jkingsman	Jack Kingsman                                                   *
+jsdir	jsdir
+KishCom	Andy Kish                                                           *
+koriwi	Kilian Gosewisch
+leitethiagon	Thiago Leite	thiago.nunes.leite@avanade.com              *
+luccailliau	Luc CAILLIAU
+lukashavrlant	Lukáš Havrlant	lukas@havrlant.cz                           *
+matchish	Serhii Shliakhov	husband.sergey@gmail.com                    *
+MichaelErmer	Michael Ermer
+orourkedd	Frankie O'Rourke
+otopsy	oToPSY
+peterjroberts	Peter Roberts                                               *
+ramikg	Rami                                                                *
+razvanz	Razvan                                                              *
+rsp	Rafał Pocztarski
+sbisbee	Sam Bisbee	sam@sbisbee.com
+sfeinste	Spruce Feinstein	sprucefeinstein@gmail.com                   *
+Shahor	Alexandre Gaudencio                                                 *
+shinyaohira	Shinya Ohira	shinya.ohira@gmail.com                          *
+SoyYoRafa	Rafael Fernández
+stamhankar999	Sandeep Tamhankar                                           *
+suguru	Suguru Namura
+theRemix	Jon Borgonia	jon.borgonia@gmail.com                          *
+thetsman	Tatsiana Hetsman
+tmitim	Timothy Myung                                                       *
+vineus	Vincent de Lagabbe	vineus@gmail.com                                *

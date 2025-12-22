@@ -1,4 +1,4 @@
-# DataStax Node.js Driver for Apache Cassandra®
+# Node.js Driver for Apache Cassandra®
 
 A modern, [feature-rich](#features) and highly tunable Node.js client library for Apache Cassandra and [DSE][dse] using
 exclusively Cassandra's binary protocol and Cassandra Query Language.
@@ -262,7 +262,7 @@ The development effort to provide an up to date, high performance, fully feature
 
 ## License
 
-© DataStax, Inc.
+Copyright 2013 The Apache Software Foundation
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
