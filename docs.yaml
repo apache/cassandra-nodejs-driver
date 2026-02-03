@@ -34,7 +34,7 @@ links:
   - title: Issues
     href:  https://datastax-oss.atlassian.net/projects/NODEJS/issues
   - title: Mailing List
-    href:  https://groups.google.com/a/lists.datastax.com/forum/#!forum/nodejs-driver-user
+    href:  https://lists.apache.org/list.html?dev@cassandra.apache.org
   - title: Npm
     href:  https://www.npmjs.org/package/cassandra-driver
 versions:

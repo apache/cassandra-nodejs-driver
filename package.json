@@ -35,10 +35,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/datastax/nodejs-driver.git"
+    "url": "https://github.com/apache/cassandra-nodejs-driver.git"
   },
   "bugs": {
-    "url": "https://groups.google.com/a/lists.datastax.com/forum/#!forum/nodejs-driver-user"
+    "url": "https://issues.apache.org/jira/projects/CASSNODEJS/issues"
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha test/unit -R spec -t 5000 --recursive",
@@ -52,6 +52,6 @@
     "eslint": "eslint lib test"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }

@@ -36,5 +36,5 @@ If you have any questions regarding these examples, feel free to post your quest
 
 [dse]: https://www.datastax.com/products/datastax-enterprise
 [doc-index]: https://docs.datastax.com/en/developer/nodejs-driver/latest/
-[mailing-list]: https://groups.google.com/a/lists.datastax.com/forum/#!forum/nodejs-driver-user
+[mailing-list]: https://lists.apache.org/list.html?dev@cassandra.apache.org
 [faq]: https://docs.datastax.com/en/developer/nodejs-driver/latest/faq/
