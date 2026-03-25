@@ -137,5 +137,5 @@ The following is a list of changes made in version 2.0 of the driver that are re
 1. `inet` values are decoded as `InetAddress` instances.
 
 
-[mailing-list]: https://groups.google.com/a/lists.datastax.com/forum/#!forum/nodejs-driver-user
+[mailing-list]: https://lists.apache.org/list.html?dev@cassandra.apache.org
 [op-info]: https://docs.datastax.com/en/developer/nodejs-driver/latest/api/module.policies/module.retry/type.OperationInfo/

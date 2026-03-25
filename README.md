@@ -1,7 +1,6 @@
 # Node.js Driver for Apache Cassandra®
 
-A modern, [feature-rich](#features) and highly tunable Node.js client library for Apache Cassandra and [DSE][dse] using
-exclusively Cassandra's binary protocol and Cassandra Query Language.
+A modern, [feature-rich](#features) and highly tunable Node.js client library for Apache Cassandra, [DSE][dse], [HCD][hcd], and [Astra DB][astra] using exclusively Cassandra's binary protocol and Cassandra Query Language.
 
 ## Installation
 
@@ -34,9 +33,19 @@ $ npm install cassandra-driver
 - [API docs][doc-api]
 - [FAQ][faq]
 
-## Getting Help
+## Contribution and Communication
 
-You can use the [project mailing list][mailinglist] or create a ticket on the [Jira issue tracker][jira].
+Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to the project.
+
+1. **Mailing List**:
+    - https://lists.apache.org/list.html?dev@cassandra.apache.org
+2. **JIRA**: 
+    - https://issues.apache.org/jira/projects/CASSNODEJS
+    - Older issues before the donation can be found at:
+      - https://datastax-oss.atlassian.net/projects/NODEJS
+3. **GitHub Repository**: https://github.com/apache/cassandra-nodejs-driver
+4. **Slack**: #cassandar-drivers channel, in the Apache Software Foundation [Slack](https://infra.apache.org/slack.html). 
+Ask in the mailing list for an invite to the Slack workspace.
 
 ## Basic usage
 
@@ -250,7 +259,7 @@ The current version of the driver offers support consistent with this policy for
 
 - Apache Cassandra versions 3.0 and above.
 - DataStax Enterprise versions 5.1 and 6.8.
-- Node.js versions 18.x, 20.x, and 22.x.
+- Node.js versions 20.x, 22.x, and 24.x.
 
 Note: DataStax products do not support big-endian systems.
 
@@ -259,6 +268,8 @@ Note: DataStax products do not support big-endian systems.
 This driver is based on the original work of [Jorge Bay][jorgebay] on [node-cassandra-cql][old-driver] and adds a series of advanced features that are common across all other [DataStax drivers][drivers] for Apache Cassandra.
 
 The development effort to provide an up to date, high performance, fully featured Node.js Driver for Apache Cassandra will continue on this project, while [node-cassandra-cql][old-driver] will be discontinued.
+
+This project is donated to the Apache Software Foundation and is now maintained under the Apache Cassandra project.
 
 ## License
 
@@ -291,9 +302,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [project documentation]: https://github.com/nodejs/release#release-schedule
 [jorgebay]: https://github.com/jorgebay
 [drivers]: https://github.com/datastax
-[mailinglist]: https://groups.google.com/a/lists.datastax.com/forum/#!forum/nodejs-driver-user
-[jira]: https://datastax-oss.atlassian.net/projects/NODEJS/issues
 [streams2]: https://nodejs.org/api/stream.html#stream_class_stream_readable
 [cql-udt]: https://cassandra.apache.org/doc/latest/cql/types.html#udts
-[dse]: https://www.datastax.com/products/datastax-enterprise
-[astra]: https://www.datastax.com/products/datastax-astra
+[dse]: https://docs.datastax.com/en/dse/6.9/get-started/get-started-dse.html
+[hcd]: https://docs.datastax.com/en/hyper-converged-database/1.2/get-started/hcd-introduction.html
+[astra]: https://docs.datastax.com/en/astra-db-serverless/index.html
