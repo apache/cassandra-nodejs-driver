@@ -5,6 +5,19 @@ are relevant to for an upgrade from prior versions.
 
 If you have any questions or comments, you can [post them on the mailing list][mailing-list].
 
+## 4.9
+
+Version 4.9.0 of the driver is the first release since the driver's donation
+to the Apache Software Foundation (ASF).
+
+### Change to DRIVER_NAME in STARTUP Messages
+
+The DRIVER_NAME property in STARTUP messages has been changed from `DataStax Node.js Driver for Apache Cassandra` to `Apache Cassandra Node.js Driver` in this release to allow
+administrators to clearly distinguish between uses of the previous DataStax Node.js drivers
+and this donated driver. Any monitoring/management applications which were monitoring driver usage
+based on this string should be aware of this change and update accordingly. Please consult
+[CASSNODEJS-4](https://issues.apache.org/jira/browse/CASSNODEJS-4) for additional details.
+
 ## 4.4
 
 ### New default load balancing policy
