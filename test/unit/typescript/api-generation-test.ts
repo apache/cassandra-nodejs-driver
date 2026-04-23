@@ -17,7 +17,7 @@
  */
 
 import { auth, concurrent, errors, datastax, geometry, mapping, metadata, metrics, policies, tracker, types } from "../../../index";
-import * as root from "../../../index";
+import root from "../../../index";
 
 import graph = datastax.graph;
 
