@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "module": "commonjs",
     "lib": ["es2015"],
     "target": "es2015",
