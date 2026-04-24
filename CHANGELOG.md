@@ -1,5 +1,24 @@
 # ChangeLog - DataStax Node.js Driver
 
+## 4.9.0
+
+2026-04-23
+
+This release marks the first release of the driver under the Apache Software  
+Foundation, following its donation from DataStax. 
+
+### Features
+
+- [NODEJS-692] - Add Node.js v24 support
+- [CASSNODEJS-2] - Update CONTRIBUTING.md after ASF donation, drop Node.js 18 support
+- [CASSNODEJS-4] - Update DRIVER_NAME after donation to ASF
+- [CASSNODEJS-3] - Public CI after Donation
+
+### Bug fixes
+- [PR #432]  - Fix retry on socket error
+- [NODEJS-693] - Remove broken jsdoc from 4.8.0
+- [NODEJS-691] - Fix generated timestamp on retry
+
 ## 4.8.0
 
 2025-02-20
