@@ -100,6 +100,7 @@ jobs:
           echo "JAVA11_HOME=${{ steps.z11.outputs.path }}" >> "$GITHUB_ENV"
           echo "JAVA17_HOME=${{ steps.z17.outputs.path }}" >> "$GITHUB_ENV"
           echo "JAVA_HOME=${{ steps.z8.outputs.path }}"    >> "$GITHUB_ENV"
+          echo "CCM_UPDATE_PID_DEFAULT_TIMEOUT=120"        >> "$GITHUB_ENV"
 
       - name: Generate SSL certificates
         run: |
@@ -174,6 +175,11 @@ jobs:
 
       - name: Print environment
         run: printenv | sort
+
+      - name: Pre-download Cassandra distribution
+        run: |
+          ccm create predownload -v $CCM_VERSION
+          ccm remove
 
       - name: Run tests
         run: |
