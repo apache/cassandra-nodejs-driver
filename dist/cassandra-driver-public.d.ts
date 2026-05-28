@@ -252,14 +252,6 @@ export declare function asUdt(value: object, udtInfo: {
  * </p>
  * @module auth
  */
-export declare const auth: {
-    Authenticator: typeof Authenticator;
-    AuthProvider: typeof AuthProvider;
-    DseGssapiAuthProvider: typeof DseGssapiAuthProvider;
-    DsePlainTextAuthProvider: typeof DsePlainTextAuthProvider;
-    /* Excluded from this release type: NoAuthProvider */
-    PlainTextAuthProvider: typeof PlainTextAuthProvider;
-};
 
 /**
  * Represents an error when trying to authenticate with auth-enabled host
@@ -1486,10 +1478,6 @@ export declare interface ColumnInfo {
     type: DataTypeInfo;
 }
 
-export declare const concurrent: {
-    executeConcurrent: typeof executeConcurrent;
-    ResultSetGroup: typeof ResultSetGroup;
-};
 
 /* Excluded from this release type: Connection */
 
@@ -1764,82 +1752,6 @@ export declare class DataCollection extends EventEmitter.EventEmitter {
  * </p>
  * @module datastax
  */
-export declare const datastax: {
-    graph: {
-        Edge: typeof Edge;
-        Element: typeof Element;
-        Path: typeof Path;
-        Property: typeof Property;
-        Vertex: typeof Vertex;
-        VertexProperty: typeof VertexProperty;
-        asInt: typeof asInt;
-        asDouble: typeof asDouble;
-        asFloat: typeof asFloat;
-        asTimestamp: typeof asTimestamp;
-        asUdt: typeof asUdt;
-        direction: {
-            both: {
-                typeName: any;
-                elementName: any;
-                toString(): any;
-            };
-            in: {
-                typeName: any;
-                elementName: any;
-                toString(): any;
-            };
-            out: {
-                typeName: any;
-                elementName: any;
-                toString(): any;
-            };
-            in_: {
-                typeName: any;
-                elementName: any;
-                toString(): any;
-            };
-        };
-        /* Excluded from this release type: getCustomTypeSerializers */
-        GraphResultSet: typeof GraphResultSet;
-        /* Excluded from this release type: GraphTypeWrapper */
-        t: {
-            id: {
-                typeName: any;
-                elementName: any;
-                toString(): any;
-            };
-            key: {
-                typeName: any;
-                elementName: any;
-                toString(): any;
-            };
-            label: {
-                typeName: any;
-                elementName: any;
-                toString(): any;
-            };
-            value: {
-                typeName: any;
-                elementName: any;
-                toString(): any;
-            };
-        };
-        /* Excluded from this release type: UdtGraphWrapper */
-    };
-    search: {
-        DateRange: typeof DateRange;
-        DateRangeBound: typeof DateRangeBound;
-        dateRangePrecision: {
-            readonly year: 0;
-            readonly month: 1;
-            readonly day: 2;
-            readonly hour: 3;
-            readonly minute: 4;
-            readonly second: 5;
-            readonly millisecond: 6;
-        };
-    };
-};
 
 export declare type DataTypeInfo = SingleColumnInfo | CustomSimpleColumnInfo | MapColumnInfo | TupleColumnInfo | ListSetColumnInfo | VectorColumnInfo | OtherCustomColumnInfo | UdtColumnInfo | TupleListColumnInfoWithoutSubtype;
 
@@ -2968,18 +2880,6 @@ declare class EnumValue {
     toString(): any;
 }
 
-export declare const errors: {
-    ArgumentError: typeof ArgumentError;
-    AuthenticationError: typeof AuthenticationError;
-    BusyConnectionError: typeof BusyConnectionError;
-    DriverError: typeof DriverError;
-    OperationTimedOutError: typeof OperationTimedOutError;
-    DriverInternalError: typeof DriverInternalError;
-    NoHostAvailableError: typeof NoHostAvailableError;
-    NotSupportedError: typeof NotSupportedError;
-    ResponseError: typeof ResponseError;
-    VIntOutOfRangeException: typeof VIntOutOfRangeException;
-};
 
 /**
  * Utilities for concurrent query execution with the DataStax Node.js Driver.
@@ -3474,12 +3374,6 @@ export declare class Geometry {
  * </p>
  * @module geometry
  */
-export declare const geometry: {
-    Point: typeof Point;
-    LineString: typeof LineString;
-    Polygon: typeof Polygon;
-    Geometry: typeof Geometry;
-};
 
 /* Excluded from this release type: getCustomTypeSerializers */
 
@@ -4597,30 +4491,6 @@ export declare class Mapper {
     batch(items: Array<ModelBatchItem>, executionOptions: string | MappingExecutionOptions): Promise<Result>;
 }
 
-export declare const mapping: {
-    Mapper: typeof Mapper;
-    ModelMapper: typeof ModelMapper;
-    ModelBatchMapper: typeof ModelBatchMapper;
-    ModelBatchItem: typeof ModelBatchItem;
-    Result: typeof Result;
-    TableMappings: typeof TableMappings;
-    DefaultTableMappings: typeof DefaultTableMappings;
-    UnderscoreCqlToCamelCaseMappings: typeof UnderscoreCqlToCamelCaseMappings;
-    q: {
-        in_: (arr: any) => QueryOperator;
-        gt: (value: any) => QueryOperator;
-        gte: (value: any) => QueryOperator;
-        lt: (value: any) => QueryOperator;
-        lte: (value: any) => QueryOperator;
-        notEq: (value: any) => QueryOperator;
-        and: (condition1: any, condition2: any) => QueryOperator;
-        incr: (value: any) => QueryAssignment;
-        decr: (value: any) => QueryAssignment;
-        append: (value: any) => QueryAssignment;
-        prepend: (value: any) => QueryAssignment;
-        remove: (value: any) => QueryAssignment;
-    };
-};
 
 export declare type MappingExecutionOptions = {
     executionProfile?: string;
@@ -4989,14 +4859,7 @@ export declare class Metadata {
     /* Excluded from this release type: compareSchemaVersions */
 }
 
-export declare const metadata: {
-    Metadata: typeof Metadata;
-};
 
-export declare const metrics: {
-    ClientMetrics: typeof ClientMetrics;
-    DefaultMetrics: typeof DefaultMetrics;
-};
 
 /**
  * Represents a query or a set of queries used to perform a mutation in a batch.
@@ -5618,46 +5481,6 @@ export declare class Point extends Geometry {
     toJSON(): object;
 }
 
-export declare const policies: {
-    addressResolution: {
-        AddressTranslator: typeof AddressTranslator;
-        EC2MultiRegionTranslator: typeof EC2MultiRegionTranslator;
-    };
-    loadBalancing: {
-        AllowListPolicy: typeof AllowListPolicy;
-        DCAwareRoundRobinPolicy: typeof DCAwareRoundRobinPolicy;
-        DefaultLoadBalancingPolicy: typeof DefaultLoadBalancingPolicy;
-        LoadBalancingPolicy: typeof LoadBalancingPolicy;
-        RoundRobinPolicy: typeof RoundRobinPolicy;
-        TokenAwarePolicy: typeof TokenAwarePolicy;
-        WhiteListPolicy: typeof WhiteListPolicy;
-    };
-    reconnection: {
-        ReconnectionPolicy: typeof ReconnectionPolicy;
-        ConstantReconnectionPolicy: typeof ConstantReconnectionPolicy;
-        ExponentialReconnectionPolicy: typeof ExponentialReconnectionPolicy;
-    };
-    retry: {
-        IdempotenceAwareRetryPolicy: typeof IdempotenceAwareRetryPolicy;
-        FallthroughRetryPolicy: typeof FallthroughRetryPolicy;
-        RetryPolicy: typeof RetryPolicy;
-    };
-    speculativeExecution: {
-        NoSpeculativeExecutionPolicy: typeof NoSpeculativeExecutionPolicy;
-        SpeculativeExecutionPolicy: typeof SpeculativeExecutionPolicy;
-        ConstantSpeculativeExecutionPolicy: typeof ConstantSpeculativeExecutionPolicy;
-    };
-    timestampGeneration: {
-        TimestampGenerator: typeof TimestampGenerator;
-        MonotonicTimestampGenerator: typeof MonotonicTimestampGenerator;
-    };
-    defaultAddressTranslator: () => AddressTranslator;
-    defaultLoadBalancingPolicy: (localDc?: string) => LoadBalancingPolicy;
-    defaultRetryPolicy: () => RetryPolicy;
-    defaultReconnectionPolicy: () => ReconnectionPolicy;
-    defaultSpeculativeExecutionPolicy: () => SpeculativeExecutionPolicy;
-    defaultTimestampGenerator: () => TimestampGenerator;
-};
 
 /**
  * @classdesc
@@ -7229,10 +7052,6 @@ declare class Token {
     /* Excluded from this release type: inspect */
 }
 
-export declare const token: {
-    Token: typeof Token;
-    TokenRange: typeof TokenRange;
-};
 
 /**
  * A wrapper load balancing policy that adds token awareness to a child policy.
@@ -7348,10 +7167,6 @@ declare class TokenRange {
  * Tracker module.
  * @module tracker
  */
-export declare const tracker: {
-    RequestTracker: typeof RequestTracker;
-    RequestLogger: typeof RequestLogger;
-};
 
 /* Excluded from this release type: TransitionalModePlainTextAuthenticator */
 
@@ -7426,80 +7241,6 @@ declare type TupleListColumnInfoWithoutSubtype = {
     code: (dataTypes.tuple | dataTypes.list);
 };
 
-export declare const types: {
-    opcodes: {
-        error: number;
-        startup: number;
-        ready: number;
-        authenticate: number;
-        credentials: number;
-        options: number;
-        supported: number;
-        query: number;
-        result: number;
-        prepare: number;
-        execute: number;
-        register: number;
-        event: number;
-        batch: number;
-        authChallenge: number;
-        authResponse: number;
-        authSuccess: number;
-        cancel: number;
-        /**
-         * Determines if the code is a valid opcode
-         */
-        isInRange: (code: any) => boolean;
-    };
-    consistencies: typeof consistencies;
-    consistencyToString: {};
-    dataTypes: typeof dataTypes;
-    /* Excluded from this release type: getDataTypeNameByCode */
-    distance: typeof distance;
-    frameFlags: {
-        compression: number;
-        tracing: number;
-        customPayload: number;
-        warning: number;
-    };
-    protocolEvents: {
-        topologyChange: string;
-        statusChange: string;
-        schemaChange: string;
-    };
-    protocolVersion: typeof protocolVersion;
-    responseErrorCodes: typeof responseErrorCodes;
-    resultKind: {
-        voidResult: number;
-        rows: number;
-        setKeyspace: number;
-        prepared: number;
-        schemaChange: number;
-    };
-    timeuuid: typeof timeuuid;
-    uuid: typeof uuid;
-    BigDecimal: typeof BigDecimal;
-    Duration: typeof Duration;
-    /* Excluded from this release type: FrameHeader */
-    InetAddress: typeof InetAddress;
-    Integer: typeof Integer;
-    LocalDate: typeof LocalDate;
-    LocalTime: typeof LocalTime;
-    Long: typeof Long__default;
-    ResultSet: typeof ResultSet;
-    ResultStream: typeof ResultStream;
-    Row: typeof Row;
-    DriverError: typeof DriverError;
-    TimeoutError: typeof TimeoutError;
-    TimeUuid: typeof TimeUuid;
-    Tuple: typeof Tuple;
-    Uuid: typeof Uuid;
-    unset: Readonly<{
-        readonly unset: true;
-    }>;
-    /* Excluded from this release type: generateTimestamp */
-    Vector: typeof Vector;
-};
 
 export declare interface Udt {
     name: string;
@@ -7762,50 +7503,106 @@ export declare class WhiteListPolicy extends AllowListPolicy {
 /* Excluded from this release type: WriteQueue */
 
 export { }
+
+
+type __auth_Authenticator = typeof Authenticator;
+type __auth_AuthProvider = typeof AuthProvider;
+type __auth_PlainTextAuthProvider = typeof PlainTextAuthProvider;
+type __auth_DsePlainTextAuthProvider = typeof DsePlainTextAuthProvider;
+type __auth_DseGssapiAuthProvider = typeof DseGssapiAuthProvider;
+
 export namespace auth {
-    export type Authenticator = InstanceType<typeof auth.Authenticator>;
-    export type AuthProvider = InstanceType<typeof auth.AuthProvider>;
-    export type PlainTextAuthProvider = InstanceType<typeof auth.PlainTextAuthProvider>;
-    export type DsePlainTextAuthProvider = InstanceType<typeof auth.DsePlainTextAuthProvider>;
-    export type DseGssapiAuthProvider = InstanceType<typeof auth.DseGssapiAuthProvider>;
+    export declare interface Authenticator extends InstanceType<__auth_Authenticator> {}
+    export declare class Authenticator { constructor(...args: ConstructorParameters<__auth_Authenticator>); }
+    export declare interface AuthProvider extends InstanceType<__auth_AuthProvider> {}
+    export declare class AuthProvider { constructor(...args: ConstructorParameters<__auth_AuthProvider>); }
+    export declare interface PlainTextAuthProvider extends InstanceType<__auth_PlainTextAuthProvider> {}
+    export declare class PlainTextAuthProvider { constructor(...args: ConstructorParameters<__auth_PlainTextAuthProvider>); }
+    export declare interface DsePlainTextAuthProvider extends InstanceType<__auth_DsePlainTextAuthProvider> {}
+    export declare class DsePlainTextAuthProvider { constructor(...args: ConstructorParameters<__auth_DsePlainTextAuthProvider>); }
+    export declare interface DseGssapiAuthProvider extends InstanceType<__auth_DseGssapiAuthProvider> {}
+    export declare class DseGssapiAuthProvider { constructor(...args: ConstructorParameters<__auth_DseGssapiAuthProvider>); }
 }
 
 type _Options = Options;
 
+type __concurrent_ResultSetGroup = typeof ResultSetGroup;
+// Outer-scope alias to avoid circular reference after const removal
+type _concurrent_executeConcurrent = typeof executeConcurrent;
+
 export namespace concurrent {
-    export type ResultSetGroup = InstanceType<typeof concurrent.ResultSetGroup>;
-    export type executeConcurrent = typeof concurrent.executeConcurrent;
+    export declare interface ResultSetGroup extends InstanceType<__concurrent_ResultSetGroup> {}
+    export declare class ResultSetGroup { constructor(...args: ConstructorParameters<__concurrent_ResultSetGroup>); }
+    export type executeConcurrent = _concurrent_executeConcurrent;
     export type Options = _Options;
 }
 
+type __datastax_graph_Edge = typeof Edge;
+type __datastax_graph_Element = typeof Element;
+type __datastax_graph_GraphResultSet = typeof GraphResultSet;
+type __datastax_graph_Path = typeof Path;
+type __datastax_graph_Property = typeof Property;
+type __datastax_graph_Vertex = typeof Vertex;
+type __datastax_graph_VertexProperty = typeof VertexProperty;
+type __datastax_search_DateRange = typeof DateRange;
+type __datastax_search_DateRangeBound = typeof DateRangeBound;
+// Outer-scope aliases to avoid circular references after datastax const removal
+type _datastax_graph_asDouble = typeof asDouble;
+type _datastax_graph_asFloat = typeof asFloat;
+type _datastax_graph_asInt = typeof asInt;
+type _datastax_graph_asTimestamp = typeof asTimestamp;
+type _datastax_graph_asUdt = typeof asUdt;
+type _datastax_graph_direction = typeof direction;
+type _datastax_graph_t = typeof t;
+type _datastax_search_dateRangePrecision = typeof dateRangePrecision;
+
 export namespace datastax {
     export namespace graph {
-        export type asDouble = typeof datastax.graph.asDouble;
-        export type asFloat = typeof datastax.graph.asFloat;
-        export type asInt = typeof datastax.graph.asInt;
-        export type asTimestamp = typeof datastax.graph.asTimestamp;
-        export type asUdt = typeof datastax.graph.asUdt;
-        export type direction = typeof datastax.graph.direction;
-        export type Edge = InstanceType<typeof datastax.graph.Edge>;
-        export type Element = InstanceType<typeof datastax.graph.Element>;
-        export type GraphResultSet = InstanceType<typeof datastax.graph.GraphResultSet>;
-        export type Path = InstanceType<typeof datastax.graph.Path>;
-        export type Property = InstanceType<typeof datastax.graph.Property>;
-        export type t = typeof datastax.graph.t;
-        export type Vertex = InstanceType<typeof datastax.graph.Vertex>;
-        export type VertexProperty = InstanceType<typeof datastax.graph.VertexProperty>;
+        export type asDouble = _datastax_graph_asDouble;
+        export type asFloat = _datastax_graph_asFloat;
+        export type asInt = _datastax_graph_asInt;
+        export type asTimestamp = _datastax_graph_asTimestamp;
+        export type asUdt = _datastax_graph_asUdt;
+        export type direction = _datastax_graph_direction;
+        export declare interface Edge extends InstanceType<__datastax_graph_Edge> {}
+        export declare class Edge { constructor(...args: ConstructorParameters<__datastax_graph_Edge>); }
+        export declare interface Element extends InstanceType<__datastax_graph_Element> {}
+        export declare abstract class Element {}
+        export declare interface GraphResultSet extends InstanceType<__datastax_graph_GraphResultSet> {}
+        export declare class GraphResultSet { constructor(...args: ConstructorParameters<__datastax_graph_GraphResultSet>); }
+        export declare interface Path extends InstanceType<__datastax_graph_Path> {}
+        export declare class Path { constructor(...args: ConstructorParameters<__datastax_graph_Path>); }
+        export declare interface Property extends InstanceType<__datastax_graph_Property> {}
+        export declare class Property { constructor(...args: ConstructorParameters<__datastax_graph_Property>); }
+        export type t = _datastax_graph_t;
+        export declare interface Vertex extends InstanceType<__datastax_graph_Vertex> {}
+        export declare class Vertex { constructor(...args: ConstructorParameters<__datastax_graph_Vertex>); }
+        export declare interface VertexProperty extends InstanceType<__datastax_graph_VertexProperty> {}
+        export declare class VertexProperty { constructor(...args: ConstructorParameters<__datastax_graph_VertexProperty>); }
     }
     export namespace search {
-        export type DateRange = InstanceType<typeof datastax.search.DateRange>;
-        export type DateRangeBound = InstanceType<typeof datastax.search.DateRangeBound>;
-        export type dateRangePrecision = typeof datastax.search.dateRangePrecision;
+        export declare interface DateRange extends InstanceType<__datastax_search_DateRange> {}
+        export declare class DateRange { constructor(...args: ConstructorParameters<__datastax_search_DateRange>); }
+        export declare interface DateRangeBound extends InstanceType<__datastax_search_DateRangeBound> {}
+        export declare class DateRangeBound { constructor(...args: ConstructorParameters<__datastax_search_DateRangeBound>); }
+        export type dateRangePrecision = _datastax_search_dateRangePrecision;
     }
 }
 
+type __geometry_LineString = typeof LineString;
+type __geometry_Point = typeof Point;
+type __geometry_Polygon = typeof Polygon;
+type __geometry_Geometry = typeof Geometry;
+
 export namespace geometry {
-    export type LineString = InstanceType<typeof geometry.LineString>;
-    export type Point = InstanceType<typeof geometry.Point>;
-    export type Polygon = InstanceType<typeof geometry.Polygon>;
+    export declare interface LineString extends InstanceType<__geometry_LineString> {}
+    export declare class LineString { constructor(...args: ConstructorParameters<__geometry_LineString>); }
+    export declare interface Point extends InstanceType<__geometry_Point> {}
+    export declare class Point { constructor(...args: ConstructorParameters<__geometry_Point>); }
+    export declare interface Polygon extends InstanceType<__geometry_Polygon> {}
+    export declare class Polygon { constructor(...args: ConstructorParameters<__geometry_Polygon>); }
+    export declare interface Geometry extends InstanceType<__geometry_Geometry> {}
+    export declare class Geometry { constructor(...args: ConstructorParameters<__geometry_Geometry>); }
 }
 
 type _MappingExecutionOptions = MappingExecutionOptions;
@@ -7819,38 +7616,68 @@ type _ModelTables = ModelTables;
 type _QueryOperator = QueryOperator;
 type _QueryAssignment = QueryAssignment;
 
+type __mapping_TableMappings = typeof TableMappings;
+type __mapping_DefaultTableMappings = typeof DefaultTableMappings;
+type __mapping_UnderscoreCqlToCamelCaseMappings = typeof UnderscoreCqlToCamelCaseMappings;
+type __mapping_Result = typeof Result;
+type __mapping_Mapper = typeof Mapper;
+type __mapping_ModelBatchItem = typeof ModelBatchItem;
+type __mapping_ModelBatchMapper = typeof ModelBatchMapper;
+type __mapping_ModelMapper = typeof ModelMapper;
+// Outer-scope aliases for mapping.q members to avoid circular references after const removal
+type _mapping_q_in_ = (typeof q)['in_'];
+type _mapping_q_gt = (typeof q)['gt'];
+type _mapping_q_gte = (typeof q)['gte'];
+type _mapping_q_lt = (typeof q)['lt'];
+type _mapping_q_lte = (typeof q)['lte'];
+type _mapping_q_notEq = (typeof q)['notEq'];
+type _mapping_q_and = (typeof q)['and'];
+type _mapping_q_incr = (typeof q)['incr'];
+type _mapping_q_decr = (typeof q)['decr'];
+type _mapping_q_append = (typeof q)['append'];
+type _mapping_q_prepend = (typeof q)['prepend'];
+type _mapping_q_remove = (typeof q)['remove'];
+
 export namespace mapping {
-    export type TableMappings = InstanceType<typeof mapping.TableMappings>;
-    export type DefaultTableMappings = InstanceType<typeof mapping.DefaultTableMappings>;
-    export type UnderscoreCqlToCamelCaseMappings = InstanceType<typeof mapping.UnderscoreCqlToCamelCaseMappings>;
-    export type Result = InstanceType<typeof mapping.Result>;
+    export declare interface TableMappings extends InstanceType<__mapping_TableMappings> {}
+    export declare class TableMappings { constructor(...args: ConstructorParameters<__mapping_TableMappings>); }
+    export declare interface DefaultTableMappings extends InstanceType<__mapping_DefaultTableMappings> {}
+    export declare class DefaultTableMappings { constructor(...args: ConstructorParameters<__mapping_DefaultTableMappings>); }
+    export declare interface UnderscoreCqlToCamelCaseMappings extends InstanceType<__mapping_UnderscoreCqlToCamelCaseMappings> {}
+    export declare class UnderscoreCqlToCamelCaseMappings { constructor(...args: ConstructorParameters<__mapping_UnderscoreCqlToCamelCaseMappings>); }
+    export declare interface Result extends InstanceType<__mapping_Result> {}
+    export declare class Result { constructor(...args: ConstructorParameters<__mapping_Result>); }
     export type MappingExecutionOptions = _MappingExecutionOptions;
     export type ModelTables = _ModelTables;
-    export type Mapper = InstanceType<typeof mapping.Mapper>;
+    export declare interface Mapper extends InstanceType<__mapping_Mapper> {}
+    export declare class Mapper { constructor(...args: ConstructorParameters<__mapping_Mapper>); }
     export type MappingOptions = _MappingOptions;
     export type FindDocInfo = _FindDocInfo;
     export type UpdateDocInfo = _UpdateDocInfo;
     export type RemoveDocInfo = _RemoveDocInfo;
     export type ModelOptions = _ModelOptions;
     export type ModelColumnOptions = _ModelColumnOptions;
-    export type ModelBatchItem = InstanceType<typeof mapping.ModelBatchItem>;
-    export type ModelBatchMapper = InstanceType<typeof mapping.ModelBatchMapper>;
-    export type ModelMapper = InstanceType<typeof mapping.ModelMapper>;
-    export namespace q{
+    export declare interface ModelBatchItem extends InstanceType<__mapping_ModelBatchItem> {}
+    export declare class ModelBatchItem { constructor(...args: ConstructorParameters<__mapping_ModelBatchItem>); }
+    export declare interface ModelBatchMapper extends InstanceType<__mapping_ModelBatchMapper> {}
+    export declare class ModelBatchMapper { constructor(...args: ConstructorParameters<__mapping_ModelBatchMapper>); }
+    export declare interface ModelMapper extends InstanceType<__mapping_ModelMapper> {}
+    export declare class ModelMapper { constructor(...args: ConstructorParameters<__mapping_ModelMapper>); }
+    export namespace q {
         export type QueryOperator = _QueryOperator;
         export type QueryAssignment = _QueryAssignment;
-        export type in_ = typeof mapping.q.in_;
-        export type gt = typeof mapping.q.gt;
-        export type gte = typeof mapping.q.gte;
-        export type lt = typeof mapping.q.lt;
-        export type lte = typeof mapping.q.lte;
-        export type notEq = typeof mapping.q.notEq;
-        export type and = typeof mapping.q.and;
-        export type incr = typeof mapping.q.incr;
-        export type decr = typeof mapping.q.decr;
-        export type append = typeof mapping.q.append;
-        export type prepend = typeof mapping.q.prepend;
-        export type remove = typeof mapping.q.remove;
+        export type in_ = _mapping_q_in_;
+        export type gt = _mapping_q_gt;
+        export type gte = _mapping_q_gte;
+        export type lt = _mapping_q_lt;
+        export type lte = _mapping_q_lte;
+        export type notEq = _mapping_q_notEq;
+        export type and = _mapping_q_and;
+        export type incr = _mapping_q_incr;
+        export type decr = _mapping_q_decr;
+        export type append = _mapping_q_append;
+        export type prepend = _mapping_q_prepend;
+        export type remove = _mapping_q_remove;
     }
 }
 
@@ -7859,117 +7686,324 @@ type _DataTypeInfo = DataTypeInfo;
 type _ColumnInfo = ColumnInfo;
 type _QueryTrace = QueryTrace;
 type _Udt = Udt;
+
+type __Aggregate = typeof Aggregate;
+type __ClientState = typeof ClientState;
+type __Index = typeof Index;
+type __DataCollection = typeof DataCollection;
+type __MaterializedView = typeof MaterializedView;
+type __TableMetadata = typeof TableMetadata;
+type __SchemaFunction = typeof SchemaFunction;
+type __Metadata = typeof Metadata;
+
 export namespace metadata {
-    export type Aggregate = InstanceType<typeof Aggregate>;
-    export type ClientState = InstanceType<typeof ClientState>;
+    export declare interface Aggregate extends InstanceType<__Aggregate> {}
+    export declare class Aggregate { constructor(...args: ConstructorParameters<__Aggregate>); }
+    export declare interface ClientState extends InstanceType<__ClientState> {}
+    export declare class ClientState { constructor(...args: ConstructorParameters<__ClientState>); }
     export type DataTypeInfo = _DataTypeInfo;
     export type ColumnInfo = _ColumnInfo;
     export type IndexKind = _IndexKind;
-    export type Index = InstanceType<typeof Index>;
-    export type DataCollection = InstanceType<typeof DataCollection>;
-    export type MaterializedView = InstanceType<typeof MaterializedView>;
-    export type TableMetadata = InstanceType<typeof TableMetadata>;
+    export declare interface Index extends InstanceType<__Index> {}
+    export declare class Index { constructor(...args: ConstructorParameters<__Index>); }
+    export declare interface DataCollection extends InstanceType<__DataCollection> {}
+    export declare class DataCollection { constructor(...args: ConstructorParameters<__DataCollection>); }
+    export declare interface MaterializedView extends InstanceType<__MaterializedView> {}
+    export declare class MaterializedView { constructor(...args: ConstructorParameters<__MaterializedView>); }
+    export declare interface TableMetadata extends InstanceType<__TableMetadata> {}
+    export declare class TableMetadata { constructor(...args: ConstructorParameters<__TableMetadata>); }
     export type QueryTrace = _QueryTrace;
-    export type SchemaFunction = InstanceType<typeof SchemaFunction>;
+    export declare interface SchemaFunction extends InstanceType<__SchemaFunction> {}
+    export declare class SchemaFunction { constructor(...args: ConstructorParameters<__SchemaFunction>); }
     export type Udt = _Udt;
-    export type Metadata = InstanceType<typeof Metadata>;
+    export declare interface Metadata extends InstanceType<__Metadata> {}
+    export declare class Metadata { constructor(...args: ConstructorParameters<__Metadata>); }
 }
 
-export namespace metrics{
-    export type ClientMetrics = InstanceType<typeof ClientMetrics>;
-    export type DefaultMetrics = InstanceType<typeof DefaultMetrics>;
+type __ClientMetrics = typeof ClientMetrics;
+type __DefaultMetrics = typeof DefaultMetrics;
+
+export namespace metrics {
+    export declare interface ClientMetrics extends InstanceType<__ClientMetrics> {}
+    export declare class ClientMetrics { constructor(...args: ConstructorParameters<__ClientMetrics>); }
+    export declare interface DefaultMetrics extends InstanceType<__DefaultMetrics> {}
+    export declare class DefaultMetrics { constructor(...args: ConstructorParameters<__DefaultMetrics>); }
 }
 
 type _DecisionInfo = DecisionInfo;
 type _OperationInfo = OperationInfo;
-export namespace policies{
+
+type __AddressTranslator = typeof AddressTranslator;
+type __EC2MultiRegionTranslator = typeof EC2MultiRegionTranslator;
+type __LoadBalancingPolicy = typeof LoadBalancingPolicy;
+type __DCAwareRoundRobinPolicy = typeof DCAwareRoundRobinPolicy;
+type __TokenAwarePolicy = typeof TokenAwarePolicy;
+type __AllowListPolicy = typeof AllowListPolicy;
+type __WhiteListPolicy = typeof WhiteListPolicy;
+type __RoundRobinPolicy = typeof RoundRobinPolicy;
+type __DefaultLoadBalancingPolicy = typeof DefaultLoadBalancingPolicy;
+type __ReconnectionPolicy = typeof ReconnectionPolicy;
+type __ConstantReconnectionPolicy = typeof ConstantReconnectionPolicy;
+type __ExponentialReconnectionPolicy = typeof ExponentialReconnectionPolicy;
+type __IdempotenceAwareRetryPolicy = typeof IdempotenceAwareRetryPolicy;
+type __FallthroughRetryPolicy = typeof FallthroughRetryPolicy;
+type __RetryPolicy = typeof RetryPolicy;
+type __ConstantSpeculativeExecutionPolicy = typeof ConstantSpeculativeExecutionPolicy;
+type __NoSpeculativeExecutionPolicy = typeof NoSpeculativeExecutionPolicy;
+type __SpeculativeExecutionPolicy = typeof SpeculativeExecutionPolicy;
+type __TimestampGenerator = typeof TimestampGenerator;
+type __MonotonicTimestampGenerator = typeof MonotonicTimestampGenerator;
+
+export namespace policies {
     export type defaultAddressTranslator = typeof defaultAddressTranslator;
     export type defaultLoadBalancingPolicy = typeof defaultLoadBalancingPolicy;
     export type defaultReconnectionPolicy = typeof defaultReconnectionPolicy;
     export type defaultRetryPolicy = typeof defaultRetryPolicy;
     export type defaultSpeculativeExecutionPolicy = typeof defaultSpeculativeExecutionPolicy;
     export type defaultTimestampGenerator = typeof defaultTimestampGenerator;
-    export namespace addressResolution{
-        export type AddressTranslator = InstanceType<typeof AddressTranslator>;
-        export type EC2MultiRegionTranslator = InstanceType<typeof EC2MultiRegionTranslator>;
+    export namespace addressResolution {
+        export declare interface AddressTranslator extends InstanceType<__AddressTranslator> {}
+        export declare class AddressTranslator { constructor(...args: ConstructorParameters<__AddressTranslator>); }
+        export declare interface EC2MultiRegionTranslator extends InstanceType<__EC2MultiRegionTranslator> {}
+        export declare class EC2MultiRegionTranslator { constructor(...args: ConstructorParameters<__EC2MultiRegionTranslator>); }
     }
-    export namespace loadBalancing{
-        export type LoadBalancingPolicy = InstanceType<typeof LoadBalancingPolicy>;
-        export type DCAwareRoundRobinPolicy = InstanceType<typeof DCAwareRoundRobinPolicy>;
-        export type TokenAwarePolicy = InstanceType<typeof TokenAwarePolicy>;
-        export type AllowListPolicy = InstanceType<typeof AllowListPolicy>;
-        export type WhiteListPolicy = InstanceType<typeof WhiteListPolicy>;
-        export type RoundRobinPolicy = InstanceType<typeof RoundRobinPolicy>;
-        export type DefaultLoadBalancingPolicy = InstanceType<typeof DefaultLoadBalancingPolicy>;
+    export namespace loadBalancing {
+        export declare interface LoadBalancingPolicy extends InstanceType<__LoadBalancingPolicy> {}
+        export declare class LoadBalancingPolicy { constructor(...args: ConstructorParameters<__LoadBalancingPolicy>); }
+        export declare interface DCAwareRoundRobinPolicy extends InstanceType<__DCAwareRoundRobinPolicy> {}
+        export declare class DCAwareRoundRobinPolicy { constructor(...args: ConstructorParameters<__DCAwareRoundRobinPolicy>); }
+        export declare interface TokenAwarePolicy extends InstanceType<__TokenAwarePolicy> {}
+        export declare class TokenAwarePolicy { constructor(...args: ConstructorParameters<__TokenAwarePolicy>); }
+        export declare interface AllowListPolicy extends InstanceType<__AllowListPolicy> {}
+        export declare class AllowListPolicy { constructor(...args: ConstructorParameters<__AllowListPolicy>); }
+        export declare interface WhiteListPolicy extends InstanceType<__WhiteListPolicy> {}
+        export declare class WhiteListPolicy { constructor(...args: ConstructorParameters<__WhiteListPolicy>); }
+        export declare interface RoundRobinPolicy extends InstanceType<__RoundRobinPolicy> {}
+        export declare class RoundRobinPolicy { constructor(...args: ConstructorParameters<__RoundRobinPolicy>); }
+        export declare interface DefaultLoadBalancingPolicy extends InstanceType<__DefaultLoadBalancingPolicy> {}
+        export declare class DefaultLoadBalancingPolicy { constructor(...args: ConstructorParameters<__DefaultLoadBalancingPolicy>); }
     }
-    export namespace reconnection{
-        export type ReconnectionPolicy = InstanceType<typeof ReconnectionPolicy>;
-        export type ConstantReconnectionPolicy = InstanceType<typeof ConstantReconnectionPolicy>;
-        export type ExponentialReconnectionPolicy = InstanceType<typeof ExponentialReconnectionPolicy>;
+    export namespace reconnection {
+        export declare interface ReconnectionPolicy extends InstanceType<__ReconnectionPolicy> {}
+        export declare class ReconnectionPolicy { constructor(...args: ConstructorParameters<__ReconnectionPolicy>); }
+        export declare interface ConstantReconnectionPolicy extends InstanceType<__ConstantReconnectionPolicy> {}
+        export declare class ConstantReconnectionPolicy { constructor(...args: ConstructorParameters<__ConstantReconnectionPolicy>); }
+        export declare interface ExponentialReconnectionPolicy extends InstanceType<__ExponentialReconnectionPolicy> {}
+        export declare class ExponentialReconnectionPolicy { constructor(...args: ConstructorParameters<__ExponentialReconnectionPolicy>); }
     }
-    export namespace retry{
+    export namespace retry {
         export type DecisionInfo = _DecisionInfo;
         export type OperationInfo = _OperationInfo;
-        export type IdempotenceAwareRetryPolicy  = InstanceType<typeof IdempotenceAwareRetryPolicy>;
-        export type FallthroughRetryPolicy = InstanceType<typeof FallthroughRetryPolicy>;
-        export type RetryPolicy = InstanceType<typeof RetryPolicy>;
-        export namespace RetryDecision{
-            export type retryDecision = RetryPolicy.retryDecision;
+        export declare interface IdempotenceAwareRetryPolicy extends InstanceType<__IdempotenceAwareRetryPolicy> {}
+        export declare class IdempotenceAwareRetryPolicy { constructor(...args: ConstructorParameters<__IdempotenceAwareRetryPolicy>); }
+        export declare interface FallthroughRetryPolicy extends InstanceType<__FallthroughRetryPolicy> {}
+        export declare class FallthroughRetryPolicy { constructor(...args: ConstructorParameters<__FallthroughRetryPolicy>); }
+        export declare interface RetryPolicy extends InstanceType<__RetryPolicy> {}
+        export declare class RetryPolicy { constructor(...args: ConstructorParameters<__RetryPolicy>); }
+        export namespace RetryDecision {
+            export type retryDecision = __RetryPolicy['retryDecision'];
         }
-        export namespace speculativeExecution{
-            export type ConstantSpeculativeExecutionPolicy = InstanceType<typeof ConstantSpeculativeExecutionPolicy>;
-            export type NoSpeculativeExecutionPolicy = InstanceType<typeof NoSpeculativeExecutionPolicy>;
-            export type SpeculativeExecutionPolicy = InstanceType<typeof SpeculativeExecutionPolicy>;
-        }
-        export namespace timestampGeneration{
-            export type TimestampGenerator = InstanceType<typeof TimestampGenerator>;
-            export type MonotonicTimestampGenerator = InstanceType<typeof MonotonicTimestampGenerator>;
-        }
-    }    
+    }
+    export namespace speculativeExecution {
+        export declare interface ConstantSpeculativeExecutionPolicy extends InstanceType<__ConstantSpeculativeExecutionPolicy> {}
+        export declare class ConstantSpeculativeExecutionPolicy { constructor(...args: ConstructorParameters<__ConstantSpeculativeExecutionPolicy>); }
+        export declare interface NoSpeculativeExecutionPolicy extends InstanceType<__NoSpeculativeExecutionPolicy> {}
+        export declare class NoSpeculativeExecutionPolicy { constructor(...args: ConstructorParameters<__NoSpeculativeExecutionPolicy>); }
+        export declare interface SpeculativeExecutionPolicy extends InstanceType<__SpeculativeExecutionPolicy> {}
+        export declare class SpeculativeExecutionPolicy { constructor(...args: ConstructorParameters<__SpeculativeExecutionPolicy>); }
+    }
+    export namespace timestampGeneration {
+        export declare interface TimestampGenerator extends InstanceType<__TimestampGenerator> {}
+        export declare class TimestampGenerator { constructor(...args: ConstructorParameters<__TimestampGenerator>); }
+        export declare interface MonotonicTimestampGenerator extends InstanceType<__MonotonicTimestampGenerator> {}
+        export declare class MonotonicTimestampGenerator { constructor(...args: ConstructorParameters<__MonotonicTimestampGenerator>); }
+    }
 }
 
-export namespace tracker{
-    export type RequestTracker = InstanceType<typeof RequestTracker>;
-    export type RequestLogger = InstanceType<typeof RequestLogger>;
+type __RequestTracker = typeof RequestTracker;
+type __RequestLogger = typeof RequestLogger;
+
+export namespace tracker {
+    export declare interface RequestTracker extends InstanceType<__RequestTracker> {}
+    export declare class RequestTracker { constructor(...args: ConstructorParameters<__RequestTracker>); }
+    export declare interface RequestLogger extends InstanceType<__RequestLogger> {}
+    export declare class RequestLogger { constructor(...args: ConstructorParameters<__RequestLogger>); }
 }
+
+type __types_Long = typeof Long;
+type __types_BigDecimal = typeof BigDecimal;
+type __types_Duration = typeof Duration;
+type __types_InetAddress = typeof InetAddress;
+type __types_Integer = typeof Integer;
+type __types_LocalDate = typeof LocalDate;
+type __types_LocalTime = typeof LocalTime;
+type __types_ResultSet = typeof ResultSet;
+type __types_ResultStream = typeof ResultStream;
+type __types_Row = typeof Row;
+type __types_TimeUuid = typeof TimeUuid;
+type __types_Tuple = typeof Tuple;
+type __types_Uuid = typeof Uuid;
+type __types_Vector = typeof Vector;
+type __types_DriverError = typeof DriverError;
+type __types_TimeoutError = typeof TimeoutError;
+// Outer-scope aliases for types namespace non-class members to avoid circular
+// references after the const types declaration is removed by the build script.
+type _types_consistencies = typeof consistencies;
+type _types_consistencyToString = typeof consistencyToString;
+type _types_dataTypes = typeof dataTypes;
+type _types_distance = typeof distance;
+type _types_protocolVersion = typeof protocolVersion;
+type _types_responseErrorCodes = typeof responseErrorCodes;
+type _types_timeuuid = typeof timeuuid;
+type _types_uuid = typeof uuid;
+type _types_unset = Readonly<{readonly unset: true; }>;
 
 export namespace types {
-    export type Long = InstanceType<typeof types.Long>;
-    export type consistencies = typeof types.consistencies;
-    export type dataTypes = typeof types.dataTypes;
-    export type distance = typeof types.distance;
-    export type responseErrorCodes = typeof types.responseErrorCodes;
-    export type protocolVersion = typeof types.protocolVersion;
-    export type unset = Readonly<{readonly unset: true; }>;
-    export type BigDecimal = InstanceType<typeof types.BigDecimal>;
-    export type Duration = InstanceType<typeof types.Duration>;
-    export type InetAddress = InstanceType<typeof types.InetAddress>;
-    export type Integer = InstanceType<typeof types.Integer>;
-    export type LocalDate = InstanceType<typeof types.LocalDate>;
-    export type LocalTime = InstanceType<typeof types.LocalTime>;
-    export type ResultSet = InstanceType<typeof types.ResultSet>;
-    export type ResultStream = InstanceType<typeof types.ResultStream>;
-    export type Row = InstanceType<typeof types.Row>;
-    export type TimeUuid = InstanceType<typeof types.TimeUuid>;
-    export type Tuple = InstanceType<typeof types.Tuple>;
-    export type Uuid = InstanceType<typeof types.Uuid>;
-    export type Vector = InstanceType<typeof types.Vector>;
+    export declare interface Long extends InstanceType<__types_Long> {}
+    export declare class Long { constructor(...args: ConstructorParameters<__types_Long>); }
+    export namespace Long {
+        export function fromNumber(value: number): Long;
+        export function fromString(str: string, radix?: number): Long;
+        export function fromInt(value: number): Long;
+        export function fromBits(lowBits: number, highBits: number, unsigned?: boolean): Long;
+        export function fromBytes(bytes: number[], unsigned?: boolean): Long;
+        export function fromValue(val: Long | number | string): Long;
+        export const ZERO: Long;
+        export const ONE: Long;
+        export const NEG_ONE: Long;
+        export const MAX_VALUE: Long;
+        export const MIN_VALUE: Long;
+        export const MAX_UNSIGNED_VALUE: Long;
+    }
+    export type consistencies = _types_consistencies;
+    export type consistencyToString = _types_consistencyToString;
+    export type dataTypes = _types_dataTypes;
+    export type distance = _types_distance;
+    export type protocolVersion = _types_protocolVersion;
+    export type responseErrorCodes = _types_responseErrorCodes;
+    export type timeuuid = _types_timeuuid;
+    export type uuid = _types_uuid;
+    export type unset = _types_unset;
+    export declare interface BigDecimal extends InstanceType<__types_BigDecimal> {}
+    export declare class BigDecimal { constructor(...args: ConstructorParameters<__types_BigDecimal>); }
+    export namespace BigDecimal {
+        export function fromBuffer(buf: Buffer): BigDecimal;
+        export function toBuffer(value: BigDecimal): Buffer;
+        export function fromString(value: string): BigDecimal;
+        export function fromNumber(value: number): BigDecimal;
+    }
+    export declare interface Duration extends InstanceType<__types_Duration> {}
+    export declare class Duration { constructor(...args: ConstructorParameters<__types_Duration>); }
+    export namespace Duration {
+        export function fromBuffer(buffer: Buffer): Duration;
+        export function fromString(input: string): Duration;
+    }
+    export declare interface InetAddress extends InstanceType<__types_InetAddress> {}
+    export declare class InetAddress { constructor(...args: ConstructorParameters<__types_InetAddress>); }
+    export namespace InetAddress {
+        export function fromString(value: string): InetAddress;
+    }
+    export declare interface Integer extends InstanceType<__types_Integer> {}
+    export declare class Integer { constructor(...args: ConstructorParameters<__types_Integer>); }
+    export namespace Integer {
+        export function fromInt(value: number): Integer;
+        export function fromNumber(value: number): Integer;
+        export function fromBits(bits: number[]): Integer;
+        export function fromString(str: string, opt_radix?: number): Integer;
+        export function fromBuffer(buf: Buffer): Integer;
+        export function toBuffer(value: Integer): Buffer;
+        export const ZERO: Integer;
+        export const ONE: Integer;
+    }
+    export declare interface LocalDate extends InstanceType<__types_LocalDate> {}
+    export declare class LocalDate {
+        constructor(year: number, month?: number, day?: number);
+        static now(): LocalDate;
+        static utcNow(): LocalDate;
+        static fromDate(date: Date): LocalDate;
+        static fromString(value: string): LocalDate;
+        static fromBuffer(buffer: Buffer): LocalDate;
+    }
+    export declare interface LocalTime extends InstanceType<__types_LocalTime> {}
+    export declare class LocalTime { constructor(...args: ConstructorParameters<__types_LocalTime>); }
+    export namespace LocalTime {
+        export function fromString(value: string): LocalTime;
+        export function now(nanoseconds?: number): LocalTime;
+        export function fromDate(date: Date, nanoseconds?: number): LocalTime;
+        export function fromMilliseconds(milliseconds: number, nanoseconds?: number): LocalTime;
+        export function fromBuffer(value: Buffer): LocalTime;
+    }
+    export declare interface ResultSet extends InstanceType<__types_ResultSet> {}
+    export declare class ResultSet { constructor(...args: ConstructorParameters<__types_ResultSet>); }
+    export declare interface ResultStream extends InstanceType<__types_ResultStream> {}
+    export declare class ResultStream { constructor(...args: ConstructorParameters<__types_ResultStream>); }
+    export declare interface Row extends InstanceType<__types_Row> {}
+    export declare class Row { constructor(...args: ConstructorParameters<__types_Row>); }
+    export declare interface TimeUuid extends InstanceType<__types_TimeUuid> {}
+    export declare class TimeUuid { constructor(...args: ConstructorParameters<__types_TimeUuid>); }
+    export namespace TimeUuid {
+        export function fromDate(date: Date, ticks?: number, nodeId?: string | Buffer, clockId?: string | Buffer): TimeUuid;
+        export function fromString(value: string): TimeUuid;
+        export function min(date: Date, ticks?: number): TimeUuid;
+        export function max(date: Date, ticks?: number): TimeUuid;
+        export function now(nodeId?: string | Buffer, clockId?: string | Buffer): TimeUuid;
+    }
+    export declare interface Tuple extends InstanceType<__types_Tuple> {}
+    export declare class Tuple { constructor(...args: ConstructorParameters<__types_Tuple>); }
+    export declare interface Uuid extends InstanceType<__types_Uuid> {}
+    export declare class Uuid { constructor(...args: ConstructorParameters<__types_Uuid>); }
+    export namespace Uuid {
+        export function fromString(value: string): Uuid;
+        export function random(): Uuid;
+    }
+    export declare interface Vector extends InstanceType<__types_Vector> {}
+    export declare class Vector { constructor(...args: ConstructorParameters<__types_Vector>); }
+    export declare interface DriverError extends InstanceType<__types_DriverError> {}
+    export declare class DriverError { constructor(...args: ConstructorParameters<__types_DriverError>); }
+    export declare interface TimeoutError extends InstanceType<__types_TimeoutError> {}
+    export declare class TimeoutError { constructor(...args: ConstructorParameters<__types_TimeoutError>); }
 }
+
+type __errors_ArgumentError = typeof ArgumentError;
+type __errors_AuthenticationError = typeof AuthenticationError;
+type __errors_BusyConnectionError = typeof BusyConnectionError;
+type __errors_DriverError = typeof DriverError;
+type __errors_DriverInternalError = typeof DriverInternalError;
+type __errors_NoHostAvailableError = typeof NoHostAvailableError;
+type __errors_NotSupportedError = typeof NotSupportedError;
+type __errors_OperationTimedOutError = typeof OperationTimedOutError;
+type __errors_ResponseError = typeof ResponseError;
+type __errors_VIntOutOfRangeException = typeof VIntOutOfRangeException;
 
 export namespace errors {
-    export type ArgumentError = InstanceType<typeof errors.ArgumentError>;
-    export type AuthenticationError = InstanceType<typeof errors.AuthenticationError>;
-    export type BusyConnectionError = InstanceType<typeof errors.BusyConnectionError>;
-    export type DriverError = InstanceType<typeof errors.DriverError>;
-    export type DriverInternalError = InstanceType<typeof errors.DriverInternalError>;
-    export type NoHostAvailableError = InstanceType<typeof errors.NoHostAvailableError>;
-    export type NotSupportedError = InstanceType<typeof errors.NotSupportedError>;
-    export type OperationTimedOutError = InstanceType<typeof errors.OperationTimedOutError>;
-    export type ResponseError = InstanceType<typeof errors.ResponseError>;
-    export type VIntOutOfRangeException = InstanceType<typeof errors.VIntOutOfRangeException>;
+    export declare interface ArgumentError extends InstanceType<__errors_ArgumentError> {}
+    export declare class ArgumentError { constructor(...args: ConstructorParameters<__errors_ArgumentError>); }
+    export declare interface AuthenticationError extends InstanceType<__errors_AuthenticationError> {}
+    export declare class AuthenticationError { constructor(...args: ConstructorParameters<__errors_AuthenticationError>); }
+    export declare interface BusyConnectionError extends InstanceType<__errors_BusyConnectionError> {}
+    export declare class BusyConnectionError { constructor(...args: ConstructorParameters<__errors_BusyConnectionError>); }
+    export declare interface DriverError extends InstanceType<__errors_DriverError> {}
+    export declare class DriverError { constructor(...args: ConstructorParameters<__errors_DriverError>); }
+    export declare interface DriverInternalError extends InstanceType<__errors_DriverInternalError> {}
+    export declare class DriverInternalError { constructor(...args: ConstructorParameters<__errors_DriverInternalError>); }
+    export declare interface NoHostAvailableError extends InstanceType<__errors_NoHostAvailableError> {}
+    export declare class NoHostAvailableError { constructor(...args: ConstructorParameters<__errors_NoHostAvailableError>); }
+    export declare interface NotSupportedError extends InstanceType<__errors_NotSupportedError> {}
+    export declare class NotSupportedError { constructor(...args: ConstructorParameters<__errors_NotSupportedError>); }
+    export declare interface OperationTimedOutError extends InstanceType<__errors_OperationTimedOutError> {}
+    export declare class OperationTimedOutError { constructor(...args: ConstructorParameters<__errors_OperationTimedOutError>); }
+    export declare interface ResponseError extends InstanceType<__errors_ResponseError> {}
+    export declare class ResponseError { constructor(...args: ConstructorParameters<__errors_ResponseError>); }
+    export declare interface VIntOutOfRangeException extends InstanceType<__errors_VIntOutOfRangeException> {}
+    export declare class VIntOutOfRangeException { constructor(...args: ConstructorParameters<__errors_VIntOutOfRangeException>); }
 }
 
-export namespace token{
-    export type Token = InstanceType<typeof Token>;
-    export type TokenRange = InstanceType<typeof TokenRange>;
+type __Token = typeof Token;
+type __TokenRange = typeof TokenRange;
+
+export namespace token {
+    export declare interface Token extends InstanceType<__Token> {}
+    export declare class Token { constructor(...args: ConstructorParameters<__Token>); }
+    export declare interface TokenRange extends InstanceType<__TokenRange> {}
+    export declare class TokenRange { constructor(...args: ConstructorParameters<__TokenRange>); }
 }
