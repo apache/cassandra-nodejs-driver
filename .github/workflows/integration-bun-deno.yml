@@ -1,79 +1,22 @@
-name: Unit and Integration Tests for Apache Cassandra NodeJS Driver
+name: Bun and Deno Integration Tests
 
 on:
   push:
-  pull_request:
-  workflow_dispatch: # allow manual trigger from Actions page
+    branches: [trunk] 
+  workflow_dispatch:
+
 permissions:
   contents: read
   actions: read
   checks: write
+
 jobs:
-  eslint:
-    name: Run eslint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: "npm"
-      - run: npm install -g eslint@4
-      - run: npm run eslint
-
-  typescript:
-    name: TypeScript generation and compilation tests
+  integration-tests:
+    name: Integration (${{ matrix.RUNTIME }}, Cassandra ${{ matrix.SERVER_VERSION }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        NODE_VERSION: ["20", "22", "24"]
-        TSC_VERSION: ["4.9", "5.9", "6.0"]
-      fail-fast: false
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.NODE_VERSION }}
-          cache: "npm"
-
-      - run: npm ci
-
-      - run: npm install typescript@${{ matrix.TSC_VERSION }} --no-save
-
-      - run: |
-          pushd test/unit/typescript/
-          npx tsc
-          node -e "require('./api-generation-test').generate()" > generated.ts
-          npx tsc --noEmit
-
-  bun-unit-tests:
-    name: Unit tests on Bun
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - run: bun install
-      - run: bunx mocha test/unit --recursive -R spec -t 5000
-
-  deno-unit-tests:
-    name: Unit tests on Deno
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: denoland/setup-deno@v2
-        with:
-          deno-version: latest
-      # --allow-scripts runs lifecycle scripts so the kerberos prebuild is fetched.
-      - run: deno install --allow-scripts=npm:kerberos
-      - run: deno run -A --unstable-detect-cjs npm:mocha@10.8.2 test/unit --recursive -R spec -t 5000
-
-  unit-integration-tests:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        NODE_VERSION: ["20", "22", "24"]
+        RUNTIME: ["bun", "deno"]
         SERVER_VERSION: ["3.11", "4.0", "4.1", "5.0"] # Cassandra minor versions
       fail-fast: false
 
@@ -176,11 +119,18 @@ jobs:
         run: |
           wget https://github.com/datastax/simulacron/releases/download/0.12.0/simulacron-standalone-0.12.0.jar -O /home/runner/simulacron.jar
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      # ---- Set up the runtime under test ----
+      - name: Set up Bun
+        if: matrix.RUNTIME == 'bun'
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version: ${{ matrix.NODE_VERSION }}
-          cache: "npm"
+          bun-version: latest
+
+      - name: Set up Deno
+        if: matrix.RUNTIME == 'deno'
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: latest
 
       - name: Resolve Cassandra latest patch version
         env:
@@ -204,44 +154,15 @@ jobs:
           ccm create predownload -v $CCM_VERSION
           ccm remove
 
-      - name: Run tests
+      - name: Run integration tests (${{ matrix.RUNTIME }})
         run: |
-          npm ci
-          npm install --no-save mocha-multi-reporters mocha-junit-reporter
-          echo '{
-            "reporterEnabled": "spec, mocha-junit-reporter",
-            "mochaJunitReporterReporterOptions": {
-              "mochaFile": "test-results/results.xml"
-            }
-          }' > config.json
-
-          npx mocha test/unit test/integration/short --recursive --exit --reporter mocha-multi-reporters \
-            --reporter-options configFile=config.json
-
-      - name: Upload Test Results
-        if: (!cancelled())
-        uses: actions/upload-artifact@v4
-        with:
-          name: Test Results (Node.js ${{ matrix.NODE_VERSION }}, Cassandra ${{ matrix.SERVER_VERSION }})
-          path: test-results/**/*
-
-  publish-test-results:
-    name: "Publish Tests Results"
-    needs: unit-integration-tests
-    runs-on: ubuntu-latest
-    permissions:
-      checks: write
-      pull-requests: write
-
-    if: (!cancelled())
-
-    steps:
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: artifacts
-
-      - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        with:
-          files: artifacts/**/*.xml
+          if [ "${{ matrix.RUNTIME }}" = "bun" ]; then
+            # Bun has full CommonJS support, so mocha runs unchanged.
+            bun install
+            bunx mocha test/integration/short --recursive --exit -R spec -t 5000
+          else
+            # --allow-scripts builds the kerberos native addon; --unstable-detect-cjs
+            # makes Deno load the CommonJS driver and tests correctly.
+            deno install --allow-scripts=npm:kerberos
+            deno run -A --unstable-detect-cjs npm:mocha test/integration/short --recursive --exit -R spec -t 5000
+          fi
