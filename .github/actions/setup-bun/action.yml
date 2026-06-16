@@ -1,0 +1,14 @@
+name: Set up Bun
+description: Install Bun from the official install script
+
+runs:
+  using: composite
+  steps:
+    - name: Install Bun
+      shell: bash
+      run: |
+        export BUN_INSTALL="$HOME/.bun"
+        curl -fsSL https://bun.com/install | bash
+        echo "BUN_INSTALL=$BUN_INSTALL" >> "$GITHUB_ENV"
+        echo "$BUN_INSTALL/bin" >> "$GITHUB_PATH"
+        "$BUN_INSTALL/bin/bun" --version

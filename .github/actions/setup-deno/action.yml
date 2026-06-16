@@ -1,0 +1,14 @@
+name: Set up Deno
+description: Install Deno from the official install script (no third-party actions)
+
+runs:
+  using: composite
+  steps:
+    - name: Install Deno
+      shell: bash
+      run: |
+        export DENO_INSTALL="$HOME/.deno"
+        curl -fsSL https://deno.land/install.sh | sh
+        echo "DENO_INSTALL=$DENO_INSTALL" >> "$GITHUB_ENV"
+        echo "$DENO_INSTALL/bin" >> "$GITHUB_PATH"
+        "$DENO_INSTALL/bin/deno" --version
