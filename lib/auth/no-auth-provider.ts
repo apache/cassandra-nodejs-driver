@@ -16,17 +16,16 @@
  * limitations under the License.
  */
 
-'use strict';
 
-const { AuthProvider, Authenticator } = require('./provider');
-const { PlainTextAuthenticator } = require('./plain-text-auth-provider');
-const errors = require('../errors');
 
+import errors from "../errors";
+import { PlainTextAuthenticator } from './plain-text-auth-provider';
+import { Authenticator, AuthProvider } from './provider';
 const dseAuthenticator = 'com.datastax.bdp.cassandra.auth.DseAuthenticator';
 
 /**
  * Internal authentication provider that is used when no provider has been set by the user.
- * @ignore
+ * @ignore @internal
  */
 class NoAuthProvider extends AuthProvider {
   newAuthenticator(endpoint, name) {
@@ -42,9 +41,10 @@ class NoAuthProvider extends AuthProvider {
 
 /**
  * An authenticator throws an error when authentication flow is started.
- * @ignore
+ * @ignore @internal
  */
 class NoAuthAuthenticator extends Authenticator {
+  endpoint: any;
   constructor(endpoint) {
     super();
     this.endpoint = endpoint;
@@ -62,6 +62,7 @@ class NoAuthAuthenticator extends Authenticator {
  * In this situation, the client is allowed to connect without authentication, but DSE
  * would still send an AUTHENTICATE response. This Authenticator handles this situation
  * by sending back a dummy credential.
+ * @internal
  */
 class TransitionalModePlainTextAuthenticator extends PlainTextAuthenticator {
   constructor() {
@@ -69,4 +70,4 @@ class TransitionalModePlainTextAuthenticator extends PlainTextAuthenticator {
   }
 }
 
-module.exports = NoAuthProvider;
+export default NoAuthProvider;

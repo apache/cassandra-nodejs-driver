@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-'use strict';
+
 
 /**
  * Geometry module.
@@ -26,7 +26,18 @@
  * @module geometry
  */
 
-exports.Geometry = require('./geometry');
-exports.LineString = require('./line-string');
-exports.Point = require('./point');
-exports.Polygon = require('./polygon');
+import Geometry from './geometry';
+import LineString from './line-string';
+import Point from './point';
+import Polygon from './polygon';
+
+export default {
+  Point,
+  LineString,
+  Polygon,
+  Geometry
+};
+
+export {
+  Geometry, LineString, Point, Polygon
+};

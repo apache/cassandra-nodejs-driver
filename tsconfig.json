@@ -17,6 +17,7 @@
 	  "resolveJsonModule": true,
 	  "moduleResolution": "nodenext",
 	  "checkJs": true,
+	  "types": ["node"],
 	},
 	"include": [
 		"lib/**/*.ts",
