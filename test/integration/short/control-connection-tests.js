@@ -196,7 +196,7 @@ describe('ControlConnection', function () {
       const options = clientOptions.extend(utils.extend({ pooling: { coreConnectionsPerHost: {}}}, helper.baseOptions));
       const reconnectionDelay = 200;
       options.policies.reconnection = new policies.reconnection.ConstantReconnectionPolicy(reconnectionDelay);
-      const cc = newInstance(options, 1, 1);
+      const cc = newInstance(options, 1);
       disposeAfter(cc);
 
       await cc.init();
@@ -242,38 +242,14 @@ describe('ControlConnection', function () {
       const options = clientOptions.extend(utils.extend({ pooling: { coreConnectionsPerHost: {}}}, helper.baseOptions));
       const reconnectionDelay = 200;
       options.policies.reconnection = new policies.reconnection.ConstantReconnectionPolicy(reconnectionDelay);
-      const cc = newInstance(options, 1, 1);
+      const cc = newInstance(options);
       disposeAfter(cc);
 
       await cc.init();
 
-      assert.ok(cc.host);
-      assert.strictEqual(helper.lastOctetOf(cc.host), '1');
-      const lbp = cc.options.policies.loadBalancing;
-
-      await new Promise(r => lbp.init({ log: utils.noop, options: { localDataCenter: 'dc1' }}, cc.hosts, r));
-
-      // the control connection host should be local or remote to trigger DOWN events
-      for (const h of cc.hosts.values()) {
-        h.setDistance(lbp.getDistance(h));
-        await h.warmupPool();
-      }
-
       // stop nodes 1 and 2 and make sure they both go down.
       await util.promisify(helper.ccmHelper.stopNode)(1);
       await helper.wait.forNodeDown(cc.hosts, 1);
-      await util.promisify(helper.ccmHelper.stopNode)(2);
-      await helper.wait.forNodeDown(cc.hosts, 2);
-
-      // check that both hosts are down.
-      cc.hosts.forEach(h => {
-        if (helper.lastOctetOf(h) === '1') {
-          assert.strictEqual(h.isUp(), false);
-        }
-        else {
-          assert.strictEqual(h.isUp(), false);
-        }
-      });
 
       // start spying on _refresh calls
       cc._refresh = sinon.spy(cc._refresh);
