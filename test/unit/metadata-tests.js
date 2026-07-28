@@ -2437,6 +2437,23 @@ describe('Metadata', function () {
       assert.deepEqual(metadata.getReplicas(null, Array.from(ranges)[0]), [h2]);
       done();
     });
+
+    it('should clear cached keyspace replicas on rebuild', function () {
+      const metadata = new Metadata(clientOptions.defaultOptions(), null);
+      metadata.tokenizer = getTokenizer();
+      const hosts = new HostMap();
+      const h1 = new Host('127.0.0.1', 2, clientOptions.defaultOptions());
+      h1.tokens = ['10'];
+      hosts.set(h1.address, h1);
+
+      assert.deepEqual(metadata.keyspaces, {});
+      metadata.keyspaces = {
+        test_ks: { replicas: { '10': [h1] } }
+      };
+
+      metadata.buildTokens(hosts);
+      assert.deepEqual(metadata.keyspaces, { test_ks: { replicas: undefined } });
+    });
   });
 
   describe('#newToken()', function () {
