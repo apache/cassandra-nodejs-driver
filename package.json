@@ -20,7 +20,7 @@
   "license": "Apache-2.0",
   "types": "./index.d.ts",
   "dependencies": {
-    "adm-zip": "~0.5.10",
+    "adm-zip": "~0.6.0",
     "long": "~5.2.3"
   },
   "devDependencies": {
