@@ -1,5 +1,15 @@
 # ChangeLog - DataStax Node.js Driver
 
+## 4.10.0
+
+2026-08-12
+
+### Features
+- [PR #470] - Bump adm-zip from 0.5.10 to 0.6.0
+- [CASSNODEJS-12] - Deno and Bun support
+- [CASSNODEJS-11] - Move @types/node to devDependencies
+- [PR #457] - Bump minimatch from 3.1.2 to 3.1.5
+
 ## 4.9.0
 
 2026-04-23
