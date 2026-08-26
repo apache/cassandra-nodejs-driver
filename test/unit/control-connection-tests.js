@@ -449,6 +449,49 @@ describe('ControlConnection', function () {
     });
   });
 
+  describe('#_nodeStatusChangeHandler()', function () {
+    it('should manage pending timers correctly across UP and DOWN events', function () {
+      const options = clientOptions.extend({}, helper.baseOptions);
+      const cc = newInstance(options);
+      cc._addressTranslator = { translate: (addr, port, cb) => cb(`${addr}:${port}`) };
+      cc._profileManager.getDistance = () => types.distance.local;
+      cc.log = helper.noop;
+
+      const host = new Host('127.0.0.1:9042', 1, options);
+      let checkIsUpCalled = false;
+      host.checkIsUp = () => { checkIsUpCalled = true; };
+      let setUpCalled = false;
+      host.setUp = () => { setUpCalled = true; };
+      cc.hosts.set('127.0.0.1:9042', host);
+
+      const makeEvent = (up) => ({ inet: { address: { toString: () => '127.0.0.1' } }, up });
+
+      // UP event should schedule timer w/o immediately calling checkIsUp
+      cc._nodeStatusChangeHandler(makeEvent(true));
+      assert.strictEqual(cc._nodeStatusChangeTimers.size, 1);
+      assert.ok(cc._nodeStatusChangeTimers.has('127.0.0.1:9042'));
+      assert.ok(!checkIsUpCalled);
+
+      // second UP event should replace first timer
+      const firstTimer = cc._nodeStatusChangeTimers.get('127.0.0.1:9042');
+      cc._nodeStatusChangeHandler(makeEvent(true));
+      assert.strictEqual(cc._nodeStatusChangeTimers.size, 1);
+      assert.notStrictEqual(cc._nodeStatusChangeTimers.get('127.0.0.1:9042'), firstTimer);
+
+      // DOWN event should cancel pending UP timer
+      cc._nodeStatusChangeHandler(makeEvent(false));
+      assert.strictEqual(cc._nodeStatusChangeTimers.size, 0);
+
+      // Ignored hosts should call setUp immediately without any timer
+      cc._profileManager.getDistance = () => types.distance.ignored;
+      cc._nodeStatusChangeHandler(makeEvent(true));
+      assert.strictEqual(cc._nodeStatusChangeTimers.size, 0);
+      assert.ok(setUpCalled);
+
+      cc.shutdown();
+    });
+  });
+
   describe('#refresh()', function () {
     it('should schedule reconnection when it cant borrow a connection', async () => {
       const state = {};
