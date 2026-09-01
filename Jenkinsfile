@@ -19,9 +19,13 @@ def initializeEnvironment() {
   env.GITHUB_COMMIT_URL = "${GITHUB_PROJECT_URL}/commit/${env.GIT_COMMIT}"
   env.NODEJS_VERSION_FULL = nodeVersions[env.NODEJS_VERSION]
 
-  env.JAVA8_HOME="${JABBA_HOME}/jdk/1.8"
-  env.JAVA11_HOME="${JABBA_HOME}/jdk/openjdk@1.11"
-  
+  env.JAVA8_HOME = sh(label: 'Get JAVA8_HOME (in case ccm needs it)',script: '''#!/bin/bash -le
+    . ${JABBA_SHELL}
+    jabba which 1.8''', returnStdout: true).trim()
+  env.JAVA11_HOME = sh(label: 'Get JAVA11_HOME (in case ccm needs it)',script: '''#!/bin/bash -le
+    . ${JABBA_SHELL}
+    jabba which openjdk@11''', returnStdout: true).trim()
+
   sh label: 'Assign Node.js global environment', script: '''#!/bin/bash -lex
     nodenv versions
     echo "Using Node.js runtime ${NODEJS_VERSION} (${NODEJS_VERSION_FULL})"
