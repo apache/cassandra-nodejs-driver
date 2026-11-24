@@ -14,7 +14,7 @@ There are some limitations in the Mapper design:
     - Deleting an individual map key/value pair is not supported, as in `DELETE favs['author'] FROM ...`
     - Updating single UDT fields map key/values is not supported, e.g: `id.field = 3`
 
-Note that some limitations can be overcome by using [Custom Queries](../queries/#custom-queries).
+Note that some limitations can be overcome by using [Custom Queries](../queries/README.md#custom-queries).
 
 ## FAQ
 
@@ -45,7 +45,7 @@ const mapper = new Mapper(client, {
 
 ### How can I set the consistency level of a Mapper execution
 
-The last parameter of the `ModelMapper` execution methods is the [execution profile](../../execution-profiles). The 
+The last parameter of the `ModelMapper` execution methods is the [execution profile](../../execution-profiles/README.md). The 
 execution profiles allow you define a group of options (consistency level, timeouts, ...) and reuse them on different
  execution invocations.
 
@@ -53,4 +53,4 @@ execution profiles allow you define a group of options (consistency level, timeo
 await videoMapper.find({ userId }, { fields: [ 'name', 'addedDate' ]}, 'my-exec-profile');
 ```
 
-You can read the Mapper documentation on [execution options](../queries/#execution-options) for more information.
+You can read the Mapper documentation on [execution options](../queries/README.md#execution-options) for more information.

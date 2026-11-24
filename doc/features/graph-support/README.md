@@ -41,7 +41,7 @@ const client = new cassandra.Client({
 });
 ```
 
-These options may be overridden by specifying the [execution profile](../execution-profiles) when calling `executeGraph()`:
+These options may be overridden by specifying the [execution profile](../execution-profiles/README.md) when calling `executeGraph()`:
 
 ```javascript
 // Use a different graph name than the one provided when creating the client instance
@@ -50,7 +50,7 @@ const vertex = result.first();
 console.log(vertex.label);
 ```
 
-You can check out more info on [Execution Profiles](../execution-profiles).
+You can check out more info on [Execution Profiles](../execution-profiles/README.md).
 
 ## Handling Results
 
@@ -95,9 +95,9 @@ await client.executeGraph(traversal, { vertexLabel: 'person', username: 'marko' 
 
 ### Graph types
 
-The DataStax Node.js driver supports a wide variety of TinkerPop types and [DSE types](../datatypes/). For graph
+The DataStax Node.js driver supports a wide variety of TinkerPop types and [DSE types](../datatypes/README.md). For graph
 types that don't have a native JavaScript representation, the driver provides the [`types`
-module](../../api/module.types/).
+module](../../api/module-types.html).
 
 For example:
 

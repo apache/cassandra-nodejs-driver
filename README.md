@@ -282,22 +282,22 @@ http://www.apache.org/licenses/LICENSE-2.0
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
 
 [cassandra]: https://cassandra.apache.org/
-[doc-api]: https://docs.datastax.com/en/developer/nodejs-driver/latest/api/
-[doc-index]: https://docs.datastax.com/en/developer/nodejs-driver/latest/
-[doc-datatypes]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/datatypes/
-[doc-numerical]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/datatypes/numerical/
-[doc-uuid]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/datatypes/uuids/
-[doc-collections]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/datatypes/collections/
-[doc-udt]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/datatypes/udts/
-[doc-promise-callback]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/promise-callback/
-[doc-mapper]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/mapper/
-[doc-mapper-start]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/mapper/getting-started/
-[doc-logging]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/logging/
-[faq]: https://docs.datastax.com/en/developer/nodejs-driver/latest/faq/
-[load-balancing]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/tuning-policies/#load-balancing-policy
-[retry]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/tuning-policies/#retry-policy
-[pooling]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/connection-pooling/
-[batch]: https://docs.datastax.com/en/developer/nodejs-driver/latest/features/batch/
+[doc-api]: https://apache.github.io/cassandra-nodejs-driver/latest/api/
+[doc-index]: https://apache.github.io/cassandra-nodejs-driver/latest/
+[doc-datatypes]: https://apache.github.io/cassandra-nodejs-driver/latest/features/datatypes/
+[doc-numerical]: https://apache.github.io/cassandra-nodejs-driver/latest/features/datatypes/numerical/
+[doc-uuid]: https://apache.github.io/cassandra-nodejs-driver/latest/features/datatypes/uuids/
+[doc-collections]: https://apache.github.io/cassandra-nodejs-driver/latest/features/datatypes/collections/
+[doc-udt]: https://apache.github.io/cassandra-nodejs-driver/latest/features/datatypes/udts/
+[doc-promise-callback]: https://apache.github.io/cassandra-nodejs-driver/latest/features/promise-callback/
+[doc-mapper]: https://apache.github.io/cassandra-nodejs-driver/latest/features/mapper/
+[doc-mapper-start]: https://apache.github.io/cassandra-nodejs-driver/latest/features/mapper/getting-started/
+[doc-logging]: https://apache.github.io/cassandra-nodejs-driver/latest/features/logging/
+[faq]: https://apache.github.io/cassandra-nodejs-driver/latest/faq/
+[load-balancing]: https://apache.github.io/cassandra-nodejs-driver/latest/features/tuning-policies/#load-balancing-policy
+[retry]: https://apache.github.io/cassandra-nodejs-driver/latest/features/tuning-policies/#retry-policy
+[pooling]: https://apache.github.io/cassandra-nodejs-driver/latest/features/connection-pooling/
+[batch]: https://apache.github.io/cassandra-nodejs-driver/latest/features/batch/
 [old-driver]: https://github.com/jorgebay/node-cassandra-cql
 [project documentation]: https://github.com/nodejs/release#release-schedule
 [jorgebay]: https://github.com/jorgebay

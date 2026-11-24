@@ -4,7 +4,7 @@ The driver provides ways to generate and decode UUIDs and time-based UUID.
 
 ## Uuid 
 
-The [`Uuid` class](/api/module.types/class.Uuid/) provides support for representing Cassandra uuid data type. To generate a version 4 unique identifier,
+The [`Uuid` class](../../../api/module-types-Uuid.html) provides support for representing Cassandra uuid data type. To generate a version 4 unique identifier,
 use the `Uuid` static method `random()`:
 
 ```javascript
@@ -32,7 +32,7 @@ console.log(id.toString() === stringValue); // true
 
 ## TimeUuid 
 
-The [`TimeUuid` class](/api/module.types/class.TimeUuid/) provides support for representing Cassandra `timeuuid` data type.
+The [`TimeUuid` class](../../../api/module-types-TimeUuid.html) provides support for representing Cassandra `timeuuid` data type.
 To generate a time-based identifier, you can use the `now()` and `fromDate()` static methods:
 
 ```javascript

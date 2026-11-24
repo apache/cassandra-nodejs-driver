@@ -1,0 +1,88 @@
+site_name: Node.js Driver for Apache Cassandra
+site_description: Node.js Driver for Apache Cassandra® Documentation
+site_url: https://apache.github.io/cassandra-nodejs-driver
+repo_url: https://github.com/apache/cassandra-nodejs-driver
+repo_name: apache/cassandra-nodejs-driver
+
+docs_dir: mkdocs
+site_dir: docs
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.path
+    - search.highlight
+    - search.share
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - toc:
+      toc_depth: 2-3
+      permalink: true
+
+nav:
+  - Home: README.md
+  - Getting Started: getting-started/README.md
+  - Features:
+    - Overview: features/README.md
+    - Address Resolution: features/address-resolution/README.md
+    - Authentication: features/auth/README.md
+    - Batch Statements: features/batch/README.md
+    - Cloud: features/cloud/README.md
+    - Concurrent Execution API: features/concurrent-api/README.md
+    - Connection Pooling: features/connection-pooling/README.md
+    - CQL Data Types:
+      - Overview: features/datatypes/README.md
+      - Collections: features/datatypes/collections/README.md
+      - Date and Time: features/datatypes/datetime/README.md
+      - Null and Unset Values: features/datatypes/nulls/README.md
+      - Numerical Values: features/datatypes/numerical/README.md
+      - Tuples: features/datatypes/tuples/README.md
+      - User-defined Types: features/datatypes/udts/README.md
+      - UUIDs: features/datatypes/uuids/README.md
+    - Execution Profiles: features/execution-profiles/README.md
+    - Geospatial Types: features/geotypes/README.md
+    - Graph Support: features/graph-support/README.md
+    - Logging: features/logging/README.md
+    - Mapper:
+      - Overview: features/mapper/README.md
+      - Getting Started: features/mapper/getting-started/README.md
+      - Defining Mappings: features/mapper/defining-mappings/README.md
+      - Queries: features/mapper/queries/README.md
+      - Limitations and FAQ: features/mapper/limitations-and-faq/README.md
+    - Metadata: features/metadata/README.md
+    - Native Protocol: features/native-protocol/README.md
+    - Paging: features/paging/README.md
+    - Parameterized Queries: features/parameterized-queries/README.md
+    - Promise and Callback API: features/promise-callback/README.md
+    - Query Timestamps: features/query-timestamps/README.md
+    - Query Warnings: features/query-warnings/README.md
+    - Speculative Executions: features/speculative-executions/README.md
+    - TLS/SSL: features/tls/README.md
+    - Tuning Policies: features/tuning-policies/README.md
+    - User-defined Functions: features/udfs/README.md
+  - Coding Rules: coding-rules/README.md
+  - FAQ: faq/README.md
+  - Upgrade Guide:
+    - Overview: upgrade-guide/README.md
+    - Upgrading from the DSE Driver: upgrade-guide/upgrade-from-dse-driver/README.md
+  - API References: api/index.html
+  - Changelog: CHANGELOG.md
+  - Contribute: CONTRIBUTING.md
+
+plugins:
+  - search
+  - awesome-pages
+  - macros
+  - mike:
+      alias_type: copy
+
+extra:
+  generator: false
+  version:
+    provider: mike

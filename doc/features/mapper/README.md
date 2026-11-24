@@ -31,11 +31,11 @@ await videoMapper.update({ id, userId, name, addedDate, description });
 Note that execution methods return a `Promise`, to simplify the code examples in the documentation [async 
 functions][async-function] are used.
 
-You can continue by reading the [Getting Started Guide](getting-started/) or other topics in the Mapper documentation:
+You can continue by reading the [Getting Started Guide](getting-started/README.md) or other topics in the Mapper documentation:
 
-- [Getting Started Guide](getting-started/)
-- [Queries](queries/)
-- [Defining Mappings](defining-mappings/)
-- [Limitations and FAQ](limitations-and-faq/)
+- [Getting Started Guide](getting-started/README.md)
+- [Queries](queries/README.md)
+- [Defining Mappings](defining-mappings/README.md)
+- [Limitations and FAQ](limitations-and-faq/README.md)
 
 [async-function]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function

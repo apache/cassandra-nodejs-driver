@@ -11,7 +11,7 @@ Apache Cassandra, you can checkout the [server documentation that covers the bas
 
 ## Driver configuration
 
-Use `sslOptions` property in the [`ClientOptions`](/api/type.ClientOptions/) to enable client TLS/SSL 
+Use `sslOptions` property in the [`ClientOptions`](../../api/global.html#ClientOptions) to enable client TLS/SSL 
 encryption:
 
 ```javascript

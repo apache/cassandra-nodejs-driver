@@ -7,7 +7,7 @@ from 4.8 to the latest version.
 
 ### How do I generate a random uuid or a time-based uuid?
 
-Use the [Uuid and TimeUuid classes](../features/datatypes/uuids) inside the types module.
+Use the [Uuid and TimeUuid classes](../features/datatypes/uuids/README.md) inside the types module.
 
 ### Should I create one `Client` instance per module in my application?
 
@@ -35,7 +35,7 @@ client.execute(query, [ key1, allKeys2 ], { prepare: true });
 
 ### Can I use a single `Client` instance for graph and CQL?
 
-Yes, you can. You should use [Execution Profiles](../features/execution-profiles/) to define your settings for CQL and
+Yes, you can. You should use [Execution Profiles](../features/execution-profiles/README.md) to define your settings for CQL and
 graph workloads, for example: define which datacenter should be used for graph or for CQL.
 
 [dse]: http://www.datastax.com/products/datastax-enterprise

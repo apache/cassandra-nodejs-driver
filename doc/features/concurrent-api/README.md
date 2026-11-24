@@ -1,6 +1,6 @@
 # Concurrent Execution API
 
-The DataStax Node.js driver provides a set of [utilities for concurrent query execution](/api/module.concurrent/),
+The DataStax Node.js driver provides a set of [utilities for concurrent query execution](../../api/module-concurrent.html),
 to facilitate executing multiple queries in parallel while controlling the concurrency level.
 
 The concurrent execution API can useful when, for example, you want to insert a large group of rows from an `Array` or

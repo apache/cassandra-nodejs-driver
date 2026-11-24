@@ -5,31 +5,31 @@ When retrieving the value of a column from a `Row` object, the value is typed ac
 CQL data type|JavaScript type
 ---|---
 ascii|String
-bigint|[Long / BigInt](numerical)
+bigint|[Long / BigInt](numerical/README.md)
 blob|[Buffer][buffer]
 boolean|Boolean
-counter|[Long / BigInt](numerical)
-date|[LocalDate](datetime)
-decimal|[BigDecimal](numerical)
-double|[Number](numerical)
-duration|[Duration](/api/module.types/class.Duration/)
-float|[Number](numerical)
-inet|[InetAddress](/api/module.types/class.InetAddress/)
-int|[Number](numerical)
-list|[Array](collections)
-map|[Object / ECMAScript 6 Map](collections)
-set|[Array / ECMAScript 6 Set](collections)
-smallint|[Number](numerical)
+counter|[Long / BigInt](numerical/README.md)
+date|[LocalDate](datetime/README.md)
+decimal|[BigDecimal](numerical/README.md)
+double|[Number](numerical/README.md)
+duration|[Duration](../../api/module-types-Duration.html)
+float|[Number](numerical/README.md)
+inet|[InetAddress](../../api/module-types-InetAddress.html)
+int|[Number](numerical/README.md)
+list|[Array](collections/README.md)
+map|[Object / ECMAScript 6 Map](collections/README.md)
+set|[Array / ECMAScript 6 Set](collections/README.md)
+smallint|[Number](numerical/README.md)
 text|String
-time|[LocalTime](datetime)
-timestamp|[Date](datetime)
-timeuuid|[TimeUuid](uuids)
-tinyint|[Number](numerical)
-tuple|[Tuple](tuples)
-uuid|[Uuid](uuids)
+time|[LocalTime](datetime/README.md)
+timestamp|[Date](datetime/README.md)
+timeuuid|[TimeUuid](uuids/README.md)
+tinyint|[Number](numerical/README.md)
+tuple|[Tuple](tuples/README.md)
+uuid|[Uuid](uuids/README.md)
 varchar|String
-varint|[Integer](numerical)
-vector|[Vector](collections)
+varint|[Integer](numerical/README.md)
+vector|[Vector](collections/README.md)
 
 ## Encoding data 
 

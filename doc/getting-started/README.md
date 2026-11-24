@@ -152,10 +152,10 @@ const client = new Client({ contactPoints, localDataCenter, authProvider });
 
 ## Working with mixed workloads
 
-The driver features [Execution Profiles](../features/execution-profiles) that provide a mechanism to group together
+The driver features [Execution Profiles](../features/execution-profiles/README.md) that provide a mechanism to group together
 a set of configuration options and reuse them across different query executions.
 
-[Execution Profiles](../features/execution-profiles) are specially useful when dealing with different workloads like
+[Execution Profiles](../features/execution-profiles/README.md) are specially useful when dealing with different workloads like
 Graph and CQL workloads, allowing you to use a single `Client` instance for all workloads, for example:
 
 ```javascript
@@ -185,8 +185,8 @@ client.executeGraph('g.V().count()', null, { executionProfile: 'graph' });
 ```
 
 [consistency]: https://docs.datastax.com/en/dse/6.7/dse-arch/datastax_enterprise/dbInternals/dbIntConfigConsistency.html
-[datatypes]: /features/datatypes/
-[mapper]: /features/mapper/
-[mapper-guide]: /features/mapper/getting-started/
+[datatypes]: ../features/datatypes/README.md
+[mapper]: ../features/mapper/README.md
+[mapper-guide]: ../features/mapper/getting-started/README.md
 [async-functions]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function 
 [astra]: https://www.datastax.com/products/datastax-astra
