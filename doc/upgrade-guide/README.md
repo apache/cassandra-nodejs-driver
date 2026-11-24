@@ -30,7 +30,7 @@ in-flight requests is selected as coordinator](https://www.eecs.harvard.edu/~mic
 ### Upgrade guide for DSE driver users
 
 The DSE driver and the Apache Cassandra driver have been merged into a single package. There's a dedicated [guide for
- DSE driver users that plan to migrate to the `cassandra-driver`](upgrade-from-dse-driver).
+ DSE driver users that plan to migrate to the `cassandra-driver`](upgrade-from-dse-driver/README.md).
 
 ---
 
@@ -140,15 +140,15 @@ The following is a list of changes made in version 2.0 of the driver that are re
 
 ### API Changes
 
-1. `uuid` and `timeuuid` values are decoded as [`Uuid`](../features/datatypes/uuids) and
-[`TimeUuid`](../features/datatypes/uuids) instances.
+1. `uuid` and `timeuuid` values are decoded as [`Uuid`](../features/datatypes/uuids/README.md) and
+[`TimeUuid`](../features/datatypes/uuids/README.md) instances.
 
-1. `decimal` values are decoded as [`BigDecimal`](../features/datatypes/numerical) instances.
+1. `decimal` values are decoded as [`BigDecimal`](../features/datatypes/numerical/README.md) instances.
 
-1. `varint` values are decoded as [`Integer`](../features/datatypes/numerical) instances.
+1. `varint` values are decoded as [`Integer`](../features/datatypes/numerical/README.md) instances.
 
 1. `inet` values are decoded as `InetAddress` instances.
 
 
 [mailing-list]: https://lists.apache.org/list.html?dev@cassandra.apache.org
-[op-info]: https://docs.datastax.com/en/developer/nodejs-driver/latest/api/module.policies/module.retry/type.OperationInfo/
+[op-info]: ../api/module-policies_retry.html#~OperationInfo

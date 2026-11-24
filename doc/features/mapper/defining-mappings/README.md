@@ -145,7 +145,7 @@ const mappingOptions = {
 
 ---
 
-You can look at the [Queries documentation](../queries/) for examples on retrieving and saving objects.
+You can look at the [Queries documentation](../queries/README.md) for examples on retrieving and saving objects.
 
 *Note that throughout the Mapper documentation the [killrvideo schema][killrvideo] is used.* 
 

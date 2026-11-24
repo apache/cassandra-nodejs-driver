@@ -91,8 +91,8 @@ client.stream(query, parameters, options)
   });
 ```
 
-[query-options]: /api/type.QueryOptions/
-[client-stream]: /api/class.Client/#stream
+[query-options]: ../../api/global.html#QueryOptions
+[client-stream]: ../../api/Client.html#stream
 [stream]: https://nodejs.org/api/stream.html
 [async-it]: https://github.com/tc39/proposal-async-iteration
 [for-of-await]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of

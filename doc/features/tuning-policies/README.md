@@ -80,5 +80,5 @@ Note that as of version 2.0, the configured `RetryPolicy` is not engaged when a 
 `WriteTimeoutException` or request error and the query was not [idempotent][idempotent].
 
 [generators]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator
-[OperationInfo]: /api/module.policies/module.retry/type.OperationInfo/
-[idempotent]: ../speculative-executions/#query-idempotence
+[OperationInfo]: ../../api/module-policies_retry.html#~OperationInfo
+[idempotent]: ../speculative-executions/README.md#query-idempotence

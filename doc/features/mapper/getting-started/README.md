@@ -11,7 +11,7 @@ const client = new Client({ contactPoints, localDataCenter, keyspace });
 ```
 
 Create a `Mapper` instance and reuse it across your application. You can define how your model properties are mapped
-to table columns in the [MappingOptions](../defining-mappings/). 
+to table columns in the [MappingOptions](../defining-mappings/README.md). 
 
 ```javascript
 const mapper = new Mapper(client, { 
@@ -66,8 +66,8 @@ example, you can shutdown your `Client` before exiting your application by calli
 mapper.client.shutdown();
 ```
 
-You can look at the [Queries documentation](../queries/) for more examples of retrieving and saving 
-objects and you read the [Mappings documentation](../defining-mappings/) to understand how 
+You can look at the [Queries documentation](../queries/README.md) for more examples of retrieving and saving 
+objects and you read the [Mappings documentation](../defining-mappings/README.md) to understand how 
 tables and columns are mapped into properties.
 
 *Note that throughout the Mapper documentation the [killrvideo schema][killrvideo] is used.* 

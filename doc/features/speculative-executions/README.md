@@ -70,7 +70,7 @@ Examples of queries that are not idempotent are:
 - prepending or appending to a list column
 - using non-idempotent CQL functions, like `now()` or `uuid()`
 
-In the driver, this is determined by [`isIdempotent` flag in the `QueryOptions`](/api/type.QueryOptions/). Because the driver 
+In the driver, this is determined by [`isIdempotent` flag in the `QueryOptions`](../../api/global.html#QueryOptions). Because the driver 
 does not parse query strings, in most cases it has no information about what the query actually does. Therefore, for
  all other types of statements, it defaults to `false`. You must set it manually with one of the mechanisms described
   below.
@@ -211,6 +211,6 @@ delete from my_table where k = 1;
 But now the second execution of the first query finally reaches its target node, which applies the mutation. The row
 that you've just deleted is back!
 
-**Using [query timestamps](../query-timestamps)**, which are enabled by default, prevents
+**Using [query timestamps](../query-timestamps/README.md)**, which are enabled by default, prevents
 this issue to appear as each request will have a client-level timestamp which will define the order to apply the 
 mutations.

@@ -12,7 +12,7 @@ client.execute(query)
   });
 ```
 
-The driver also exposes [UDFs and aggregates metadata information](/api/module.metadata/), for example let's see how to retrieve the metadata
+The driver also exposes [UDFs and aggregates metadata information](../../api/module-metadata.html), for example let's see how to retrieve the metadata
 information of a UDF named iif, that takes a boolean and int parameter.
 
 ```javascript

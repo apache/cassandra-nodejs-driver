@@ -1,7 +1,7 @@
 # Queries
 
 The Mapper generates the CQL queries and adapts the results into objects according to the [defined
-mappings](../defining-mappings).
+mappings](../defining-mappings/README.md).
 
 *Note that throughout the Mapper documentation the [killrvideo schema][killrvideo] is used.* 
 
@@ -207,7 +207,7 @@ await mapper.batch(changes);
 ## Custom queries
 
 The Mapper supports bypassing query generation, allowing you to specify the CQL query. It will execute the query and 
-map the results according to the [mapping configuration](../defining-mappings).
+map the results according to the [mapping configuration](../defining-mappings/README.md).
 
 Use `mapWithQuery()` method to create your own `ModelMapper` execution method.
 
@@ -238,10 +238,10 @@ values in the query.
 ### Execution options
 
 The last parameter of the `ModelMapper` execution methods is a string representing the [Execution
-Profile](../../execution-profiles). Execution profiles allows you to define the execution options once and reuse them
+Profile](../../execution-profiles/README.md). Execution profiles allows you to define the execution options once and reuse them
  across different execution invocations.
 
-As stated in the [Execution Profiles documentation](../../execution-profiles), you should define the profiles when 
+As stated in the [Execution Profiles documentation](../../execution-profiles/README.md), you should define the profiles when 
 creating the `Client` instance.
 
 ```javascript
@@ -286,7 +286,7 @@ userMapper.get({ videoId }, 'another-execution-profile');
 
 ---
 
-You can look at the [documentation on defining mappings](../defining-mappings) to understand how tables and columns 
+You can look at the [documentation on defining mappings](../defining-mappings/README.md) to understand how tables and columns 
 are mapped into object and properties.
 
 [killrvideo]: https://github.com/pmcfadin/killrvideo-sample-schema

@@ -36,7 +36,7 @@ In addition, you can also set the default timestamp on a per-execution basis in 
 session.execute(query, params, { timestamp: timestamp });
 ```
 
-[mtg]: ../../api/module.policies/module.timestampGeneration/class.MonotonicTimestampGenerator/
+[mtg]: ../../api/module-policies_timestampGeneration-MonotonicTimestampGenerator.html
 
 
 #### Accuracy

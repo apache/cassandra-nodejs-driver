@@ -3,7 +3,7 @@
 Cassandra 2.1 introduced a `tuple` type for CQL.
 
 A tuple is a fixed-length set of typed positional fields. With the driver, you retrieve and store tuples using the 
-[`Tuple` class](/api/module.types/class.Tuple/).
+[`Tuple` class](../../../api/module-types-Tuple.html).
 
 For example, given the following table to represent the value of the exchange between two currencies.
 
